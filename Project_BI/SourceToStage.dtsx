@@ -1,0 +1,2414 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/1/2024 2:43:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-5GI3DC0I"
+  DTS:CreatorName="LAPTOP-5GI3DC0I\HUY"
+  DTS:DTSID="{1736349C-84F8-40ED-A36B-7EDAA7B72A8F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="SourceToStage"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{BDAA48BE-233E-4905-8783-E5A478769EA5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{EB1D749A-61C9-41FD-8CE3-FFF67BCDEB87}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\10_state_aqi_2021.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{1EB127FB-4029-4D6B-A9F2-5B096599976C}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\10_state_aqi_2021.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{BEF0C78D-960A-4752-B0B5-82F96FDEF146}"
+      DTS:ObjectName="Excel Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Study\HKI_24-25\BI\seminar\demo\source\CustomerData.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 3]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{21A1DFE1-5925-41FF-B85A-AA1A1681D895}"
+      DTS:ObjectName="Excel Connection Manager 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\10_state_aqi_2021.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 4]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{BCC76B05-1DEA-44CA-867A-E27789A64D50}"
+      DTS:ObjectName="Excel Connection Manager 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\10_state_aqi_2021.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 5]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{96E99537-BB3E-4432-AF47-2978EF18751C}"
+      DTS:ObjectName="Excel Connection Manager 5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\10_state_aqi_2022.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 6]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{51913C4F-4EB7-420F-8DBD-5EBBA986979C}"
+      DTS:ObjectName="Excel Connection Manager 6">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\10_state_aqi_2023.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.METADATA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7F90D62B-3D2E-4104-806A-9897B33D2479}"
+      DTS:ObjectName="LAPTOP-5GI3DC0I\MSSQLSERVER01.METADATA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-5GI3DC0I\MSSQLSERVER01;Initial Catalog=METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{7F90D62B-3D2E-4104-806A-9897B33D2479}LAPTOP-5GI3DC0I\MSSQLSERVER01.METADATA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C0A2F1F5-0366-4F64-B91D-4746BDC16733}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CET1">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{88FC49EE-3B66-4662-85FD-115EA24E9F92}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CET2">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EA608344-31FC-47F0-B3E1-2A0A450C85B8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LSET1">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BBD373C9-94FE-454B-B229-9D8608A7E038}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LSET2">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL AQI"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F7FF7C0E-034A-4661-BB27-3531A965E977}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL AQI"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL AQI\Add Status Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Add Status Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL AQI\Add Status Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL AQI\Add Status Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ETL AQI\Add Status Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Add Status Column.Outputs[Derived Column Output].Columns[Status]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL AQI\Add Status Column.Outputs[Derived Column Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL AQI\Add Status Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ETL AQI\Add Status Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Add Status Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\Add Status Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Add Status Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\Add Status Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL AQI\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
+FROM [10_state_aqi_2023$]
+WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [Last Updated] &lt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping">"Parameter0:Input",{EA608344-31FC-47F0-B3E1-2A0A450C85B8};"Parameter1:Input",{C0A2F1F5-0366-4F64-B91D-4746BDC16733};"Parameter2:Input",{EA608344-31FC-47F0-B3E1-2A0A450C85B8};"Parameter3:Input",{C0A2F1F5-0366-4F64-B91D-4746BDC16733};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL AQI\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 6]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 6]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[State Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[State Name]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[State Name]"
+                      name="State Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[county Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[county Name]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[county Name]"
+                      name="county Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[State Code]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[State Code]"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[State Code]"
+                      name="State Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[County Code]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[County Code]"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[County Code]"
+                      name="County Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[AQI]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[AQI]"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[AQI]"
+                      name="AQI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Category]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Defining Parameter]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Defining Parameter]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Defining Parameter]"
+                      name="Defining Parameter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Defining Site]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Defining Site]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Defining Site]"
+                      name="Defining Site"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Number of Sites Reporting]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Number of Sites Reporting]"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Number of Sites Reporting]"
+                      name="Number of Sites Reporting"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Created]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Created]"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Created]"
+                      name="Created"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Last Updated]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last Updated]"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Last Updated]"
+                      name="Last Updated"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[State Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="State Name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[county Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="county Name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[State Code]"
+                      dataType="r8"
+                      name="State Code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[County Code]"
+                      dataType="r8"
+                      name="County Code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[AQI]"
+                      dataType="r8"
+                      name="AQI" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Defining Parameter]"
+                      dataType="wstr"
+                      length="255"
+                      name="Defining Parameter" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Defining Site]"
+                      dataType="wstr"
+                      length="255"
+                      name="Defining Site" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Number of Sites Reporting]"
+                      dataType="r8"
+                      name="Number of Sites Reporting" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Created]"
+                      dataType="date"
+                      name="Created" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last Updated]"
+                      dataType="date"
+                      name="Last Updated" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[State Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[State Name]"
+                      name="State Name" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[county Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[county Name]"
+                      name="county Name" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[State Code]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[State Code]"
+                      name="State Code" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[County Code]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[County Code]"
+                      name="County Code" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[AQI]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[AQI]"
+                      name="AQI" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Defining Parameter]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Defining Parameter]"
+                      name="Defining Parameter" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Defining Site]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Defining Site]"
+                      name="Defining Site" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Number of Sites Reporting]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Number of Sites Reporting]"
+                      name="Number of Sites Reporting" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Created]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Created]"
+                      name="Created" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Last Updated]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[Last Updated]"
+                      name="Last Updated" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL AQI\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL AQI\OLE DB Destination.Connections[OleDbConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL AQI\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL AQI\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL AQI\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL AQI\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL AQI\Source 2021"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 2021"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'10_state_aqi_2021$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
+FROM [10_state_aqi_2021$]
+WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [Last Updated] &lt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping">"Parameter0:Input",{EA608344-31FC-47F0-B3E1-2A0A450C85B8};"Parameter1:Input",{C0A2F1F5-0366-4F64-B91D-4746BDC16733};"Parameter2:Input",{EA608344-31FC-47F0-B3E1-2A0A450C85B8};"Parameter3:Input",{C0A2F1F5-0366-4F64-B91D-4746BDC16733};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL AQI\Source 2021.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 4]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[State Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[State Name]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[State Name]"
+                      name="State Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[county Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[county Name]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[county Name]"
+                      name="county Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[State Code]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[State Code]"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[State Code]"
+                      name="State Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[County Code]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[County Code]"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[County Code]"
+                      name="County Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[AQI]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[AQI]"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[AQI]"
+                      name="AQI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Category]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Defining Parameter]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Defining Parameter]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Defining Parameter]"
+                      name="Defining Parameter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Defining Site]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Defining Site]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Defining Site]"
+                      name="Defining Site"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Number of Sites Reporting]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Number of Sites Reporting]"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Number of Sites Reporting]"
+                      name="Number of Sites Reporting"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Created]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Created]"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Created]"
+                      name="Created"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Last Updated]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Last Updated]"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Last Updated]"
+                      name="Last Updated"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[State Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="State Name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[county Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="county Name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[State Code]"
+                      dataType="r8"
+                      name="State Code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[County Code]"
+                      dataType="r8"
+                      name="County Code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[AQI]"
+                      dataType="r8"
+                      name="AQI" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Defining Parameter]"
+                      dataType="wstr"
+                      length="255"
+                      name="Defining Parameter" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Defining Site]"
+                      dataType="wstr"
+                      length="255"
+                      name="Defining Site" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Number of Sites Reporting]"
+                      dataType="r8"
+                      name="Number of Sites Reporting" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Created]"
+                      dataType="date"
+                      name="Created" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].ExternalColumns[Last Updated]"
+                      dataType="date"
+                      name="Last Updated" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[State Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[State Name]"
+                      name="State Name" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[county Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[county Name]"
+                      name="county Name" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[State Code]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[State Code]"
+                      name="State Code" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[County Code]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[County Code]"
+                      name="County Code" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[AQI]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[AQI]"
+                      name="AQI" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Defining Parameter]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Defining Parameter]"
+                      name="Defining Parameter" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Defining Site]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Defining Site]"
+                      name="Defining Site" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Number of Sites Reporting]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Number of Sites Reporting]"
+                      name="Number of Sites Reporting" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Created]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Created]"
+                      name="Created" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Last Updated]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[Last Updated]"
+                      name="Last Updated" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL AQI\Source 2022"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 2022"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'10_state_aqi_2022$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
+FROM [10_state_aqi_2022$]
+WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [Last Updated] &lt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping">"Parameter0:Input",{EA608344-31FC-47F0-B3E1-2A0A450C85B8};"Parameter1:Input",{C0A2F1F5-0366-4F64-B91D-4746BDC16733};"Parameter2:Input",{EA608344-31FC-47F0-B3E1-2A0A450C85B8};"Parameter3:Input",{C0A2F1F5-0366-4F64-B91D-4746BDC16733};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL AQI\Source 2022.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[State Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[State Name]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[State Name]"
+                      name="State Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[county Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[county Name]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[county Name]"
+                      name="county Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[State Code]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[State Code]"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[State Code]"
+                      name="State Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[County Code]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[County Code]"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[County Code]"
+                      name="County Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[AQI]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[AQI]"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[AQI]"
+                      name="AQI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Category]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Defining Parameter]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Defining Parameter]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Defining Parameter]"
+                      name="Defining Parameter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Defining Site]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Defining Site]"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Defining Site]"
+                      name="Defining Site"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Number of Sites Reporting]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Number of Sites Reporting]"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Number of Sites Reporting]"
+                      name="Number of Sites Reporting"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Created]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Created]"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Created]"
+                      name="Created"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Last Updated]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Last Updated]"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Last Updated]"
+                      name="Last Updated"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[State Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="State Name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[county Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="county Name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[State Code]"
+                      dataType="r8"
+                      name="State Code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[County Code]"
+                      dataType="r8"
+                      name="County Code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[AQI]"
+                      dataType="r8"
+                      name="AQI" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Defining Parameter]"
+                      dataType="wstr"
+                      length="255"
+                      name="Defining Parameter" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Defining Site]"
+                      dataType="wstr"
+                      length="255"
+                      name="Defining Site" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Number of Sites Reporting]"
+                      dataType="r8"
+                      name="Number of Sites Reporting" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Created]"
+                      dataType="date"
+                      name="Created" />
+                    <externalMetadataColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].ExternalColumns[Last Updated]"
+                      dataType="date"
+                      name="Last Updated" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[State Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[State Name]"
+                      name="State Name" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[county Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[county Name]"
+                      name="county Name" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[State Code]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[State Code]"
+                      name="State Code" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[County Code]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[County Code]"
+                      name="County Code" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[AQI]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[AQI]"
+                      name="AQI" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Defining Parameter]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Defining Parameter]"
+                      name="Defining Parameter" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Defining Site]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Defining Site]"
+                      name="Defining Site" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Number of Sites Reporting]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Number of Sites Reporting]"
+                      name="Number of Sites Reporting" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Created]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Created]"
+                      name="Created" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Last Updated]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[Last Updated]"
+                      name="Last Updated" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL AQI\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\ETL AQI\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[State Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State Name"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[State Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[county Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="county Name"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[county Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[county Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[State Code]"
+                      cachedDataType="r8"
+                      cachedName="State Code"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[State Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[County Code]"
+                      cachedDataType="r8"
+                      cachedName="County Code"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[County Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[County Code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[AQI]"
+                      cachedDataType="r8"
+                      cachedName="AQI"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[AQI]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[AQI]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Category"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Category]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Category]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[Defining Parameter]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Defining Parameter"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Defining Parameter]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Parameter]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[Defining Site]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Defining Site"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Defining Site]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Site]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[Number of Sites Reporting]"
+                      cachedDataType="r8"
+                      cachedName="Number of Sites Reporting"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Number of Sites Reporting]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Number of Sites Reporting]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[Created]"
+                      cachedDataType="date"
+                      cachedName="Created"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Created]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Created]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 1].Columns[Last Updated]"
+                      cachedDataType="date"
+                      cachedName="Last Updated"
+                      lineageId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output].Columns[Last Updated]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Last Updated]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL AQI\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[State Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State Name"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[State Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[county Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="county Name"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[county Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[county Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[State Code]"
+                      cachedDataType="r8"
+                      cachedName="State Code"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[State Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[County Code]"
+                      cachedDataType="r8"
+                      cachedName="County Code"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[County Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[County Code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[AQI]"
+                      cachedDataType="r8"
+                      cachedName="AQI"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[AQI]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[AQI]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Category"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Category]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Category]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[Defining Parameter]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Defining Parameter"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Defining Parameter]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Parameter]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[Defining Site]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Defining Site"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Defining Site]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Site]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[Number of Sites Reporting]"
+                      cachedDataType="r8"
+                      cachedName="Number of Sites Reporting"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Number of Sites Reporting]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Number of Sites Reporting]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[Created]"
+                      cachedDataType="date"
+                      cachedName="Created"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Created]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Created]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 2].Columns[Last Updated]"
+                      cachedDataType="date"
+                      cachedName="Last Updated"
+                      lineageId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output].Columns[Last Updated]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Last Updated]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL AQI\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[State Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State Name"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[State Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[county Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="county Name"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[county Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[county Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[State Code]"
+                      cachedDataType="r8"
+                      cachedName="State Code"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[State Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[County Code]"
+                      cachedDataType="r8"
+                      cachedName="County Code"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[County Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[County Code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[AQI]"
+                      cachedDataType="r8"
+                      cachedName="AQI"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[AQI]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[AQI]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Category"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Category]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Category]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[Defining Parameter]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Defining Parameter"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Defining Parameter]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Parameter]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[Defining Site]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Defining Site"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Defining Site]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Site]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[Number of Sites Reporting]"
+                      cachedDataType="r8"
+                      cachedName="Number of Sites Reporting"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Number of Sites Reporting]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Number of Sites Reporting]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[Created]"
+                      cachedDataType="date"
+                      cachedName="Created"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Created]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Created]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL AQI\Union All.Inputs[Union All Input 3].Columns[Last Updated]"
+                      cachedDataType="date"
+                      cachedName="Last Updated"
+                      lineageId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output].Columns[Last Updated]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Last Updated]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL AQI\Union All.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL AQI\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Name]"
+                      name="State Name" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[county Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[county Name]"
+                      name="county Name" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Code]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[State Code]"
+                      name="State Code" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[County Code]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[County Code]"
+                      name="County Code" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[AQI]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[AQI]"
+                      name="AQI" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Parameter]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Parameter]"
+                      name="Defining Parameter" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Site]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Defining Site]"
+                      name="Defining Site" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Number of Sites Reporting]"
+                      dataType="r8"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Number of Sites Reporting]"
+                      name="Number of Sites Reporting" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Created]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Created]"
+                      name="Created" />
+                    <outputColumn
+                      refId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Last Updated]"
+                      dataType="date"
+                      lineageId="Package\ETL AQI\Union All.Outputs[Union All Output 1].Columns[Last Updated]"
+                      name="Last Updated" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL AQI.Paths[Excel Source Output]"
+              endId="Package\ETL AQI\Union All.Inputs[Union All Input 1]"
+              name="Excel Source Output"
+              startId="Package\ETL AQI\Source 2021.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\ETL AQI.Paths[Excel Source Output1]"
+              endId="Package\ETL AQI\Union All.Inputs[Union All Input 2]"
+              name="Excel Source Output"
+              startId="Package\ETL AQI\Source 2022.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\ETL AQI.Paths[Excel Source Output2]"
+              endId="Package\ETL AQI\Union All.Inputs[Union All Input 3]"
+              name="Excel Source Output"
+              startId="Package\ETL AQI\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\ETL AQI.Paths[Union All Output 1]"
+              endId="Package\ETL AQI\Add Status Column.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\ETL AQI\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL County"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D111CCBB-4376-4F73-9032-28E20CFF6CCB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL County"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL County\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL County\Excel Source.Connections[OleDbConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL County\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\ETL County\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL County\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL County\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL County\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL County\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Select LSET, CET AQI"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6E5BDBBD-8D28-4080-9F52-819DCFAF1E33}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Select LSET, CET AQI"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F90D62B-3D2E-4104-806A-9897B33D2479}"
+          SQLTask:SqlStatementSource="SELECT LSET, CET&#xA;FROM DATA_FLOW&#xA;WHERE TABLE_NAME='STATE_AQI'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSET1" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Select LSET, CET County"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f2b6ad70-e554-4aad-a84d-da5a91dbfbce}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Select LSET, CET County"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F90D62B-3D2E-4104-806A-9897B33D2479}"
+          SQLTask:SqlStatementSource="SELECT LSET, CET&#xA;FROM DATA_FLOW&#xA;WHERE TABLE_NAME='US_COUNTIES'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSET1" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update CET AQI"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4CE7C20E-77E8-4B1A-981D-63BF60C5D4C2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update CET AQI"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F90D62B-3D2E-4104-806A-9897B33D2479}"
+          SQLTask:SqlStatementSource="UPDATE               DATA_FLOW&#xA;SET                        CET = GETDATE()&#xA;WHERE                  (TABLE_NAME = 'STATE_AQI')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update CET County"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0cfbe322-9d08-4b0c-96a4-582fa01e46c0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update CET County"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F90D62B-3D2E-4104-806A-9897B33D2479}"
+          SQLTask:SqlStatementSource="UPDATE               DATA_FLOW&#xA;SET                        CET = GETDATE()&#xA;WHERE                  (TABLE_NAME = 'US_COUNTIES')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update LSET AQI"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D6092A80-7C14-447F-907B-5226661C0A45}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update LSET AQI"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F90D62B-3D2E-4104-806A-9897B33D2479}"
+          SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = CET&#xA;WHERE TABLE_NAME='STATE_AQI'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update LSET AQI County"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f36ae320-9929-40bd-866e-aeb2109ebce2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update LSET AQI County"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F90D62B-3D2E-4104-806A-9897B33D2479}"
+          SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = CET&#xA;WHERE TABLE_NAME = 'US_COUNTIES'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C296E7A2-07B5-4076-8D5C-F23381DAFF3A}"
+      DTS:From="Package\Update CET AQI"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Select LSET, CET AQI" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{94E11327-73EB-4CD3-9CEE-EC4763411F3F}"
+      DTS:From="Package\Select LSET, CET AQI"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\ETL AQI" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\ETL AQI"
+          TopLeft="159.999991257986,284.266664689912" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\ETL County"
+          TopLeft="583.333301461407,297.266664599511" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Select LSET, CET AQI"
+          TopLeft="121.666660019093,183.733332055675" />
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\Select LSET, CET County"
+          TopLeft="561.666635978554,177.666665431195" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Update CET AQI"
+          TopLeft="141.666658926342,65.8666662086381" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Update CET County"
+          TopLeft="574.999968583386,76.2666661363178" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Update LSET AQI"
+          TopLeft="145.833325365351,383.933330663509" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\Update LSET AQI County"
+          TopLeft="570.833302144377,398.666663894389" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="216.466659472718,107.466666208638">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.2666658470366"
+              Start="0,0"
+              End="0,68.7666658470366">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.7666658470366" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="216.23332563854,225.333332055675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.9333326342371"
+              Start="0,0"
+              End="0,51.4333326342371">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.4333326342371" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL AQI">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\ETL AQI\Excel Source"
+          TopLeft="574.166635295585,68.466666190558" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\ETL AQI\Source 2021"
+          TopLeft="128.333326321509,64.1333328873581" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\ETL AQI\Source 2022"
+          TopLeft="340.833314711022,75.3999994756778" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\ETL AQI\OLE DB Destination"
+          TopLeft="319.696952229498,464.848481615986" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\ETL AQI\Add Status Column"
+          TopLeft="316.818164508,353.363633906389" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\ETL AQI\Union All"
+          TopLeft="344.16664786223,259.133331531352" />
+        <EdgeLayout
+          Id="Package\ETL AQI.Paths[Excel Source Output]"
+          TopLeft="197.133326321509,105.733332887358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.116655852977,153.399998643994"
+              Start="0,0"
+              End="189.116655852977,145.899998643994">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.6999993219971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,72.6999993219971"
+                    Point2="0,76.6999993219971"
+                    Point3="4,76.6999993219971" />
+                  <mssgle:LineSegment
+                    End="185.116655852977,76.6999993219971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.116655852977,76.6999993219971"
+                    Point2="189.116655852977,76.6999993219971"
+                    Point3="189.116655852977,80.6999993219971" />
+                  <mssgle:LineSegment
+                    End="189.116655852977,145.899998643994" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL AQI.Paths[Union All Output 1]"
+          TopLeft="402.492406185115,300.733331531352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.6303023750373"
+              Start="0,0"
+              End="0,45.1303023750373">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.1303023750373" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL AQI.Paths[Excel Source Output2]"
+          TopLeft="644.166635295585,110.066666190558">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-211.166654145553,149.066665340794"
+              Start="0,0"
+              End="-211.166654145553,141.566665340794">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.9507239417292" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,68.9507239417292"
+                    Point2="0,72.9507239417292"
+                    Point3="-4,72.9507239417292" />
+                  <mssgle:LineSegment
+                    End="-207.166654145553,72.9507239417292" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-207.166654145553,72.9507239417292"
+                    Point2="-211.166654145553,72.9507239417292"
+                    Point3="-211.166654145553,76.9507239417292" />
+                  <mssgle:LineSegment
+                    End="-211.166654145553,141.566665340794" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL AQI.Paths[Excel Source Output1]"
+          TopLeft="409.866639529998,116.999999475678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,142.133332055675"
+              Start="0,0"
+              End="0,134.633332055675">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,134.633332055675" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL AQI\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL AQI\Source 2021">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL AQI\Source 2022">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ETL County">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="148,44.8"
+          Id="Package\ETL County\Excel Source"
+          TopLeft="433.345448088104,90.1272713842717" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
