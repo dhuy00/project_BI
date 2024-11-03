@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{41110C3F-2916-4290-9081-94150ABD8559}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{B0784053-9FF6-45A2-ABE8-82DA12989FCE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -121,7 +121,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\10_state_aqi_2023.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\10_state_aqi_2023.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -3307,7 +3307,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       DTS:LocaleID="-1"
       DTS:ObjectName="Select LSET, CET AQI"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3332,7 +3332,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       DTS:LocaleID="-1"
       DTS:ObjectName="Select LSET, CET County"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3357,7 +3357,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate AQI"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3374,7 +3374,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate County"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3391,7 +3391,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       DTS:LocaleID="-1"
       DTS:ObjectName="Update CET AQI"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3408,7 +3408,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       DTS:LocaleID="-1"
       DTS:ObjectName="Update CET County"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3425,7 +3425,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       DTS:LocaleID="-1"
       DTS:ObjectName="Update LSET AQI County"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3449,7 +3449,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       DTS:LocaleID="-1"
       DTS:ObjectName="Update LSET, STATUS, ROW_COUNT AQI"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3544,17 +3544,33 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\ETL AQI"
+          TopLeft="145.8666825571,378.733330699669" />
+        <NodeLayout
           Size="132.8,41.6"
           Id="Package\ETL County"
           TopLeft="545.166637754276,395.076187728879" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Select LSET, CET AQI"
+          TopLeft="115.033350908425,292.066664635672" />
         <NodeLayout
           Size="198.4,41.6"
           Id="Package\Select LSET, CET County"
           TopLeft="519.333305832413,292.809521773363" />
         <NodeLayout
+          Size="140,41.6"
+          Id="Package\Truncate AQI"
+          TopLeft="135.72599047047,185.939392646395" />
+        <NodeLayout
           Size="155.2,41.6"
           Id="Package\Truncate County"
           TopLeft="532.287850579154,186.412119915834" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Update CET AQI"
+          TopLeft="133.604778465156,80.5999994395176" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Update CET County"
@@ -3563,6 +3579,76 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
           Size="196.8,41.6"
           Id="Package\Update LSET AQI County"
           TopLeft="515.999972681206,484.342853774798" />
+        <NodeLayout
+          Size="281.6,41.6"
+          Id="Package\Update LSET, STATUS, ROW_COUNT AQI"
+          TopLeft="59.2000206256896,471.466663388145" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="208.665384467813,122.199999439518">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.7393932068771"
+              Start="0,0"
+              End="0,56.2393932068771">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.2393932068771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="205.850016732762,333.666664635672">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.0666660639975"
+              Start="0,0"
+              End="0,37.5666660639975">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5666660639975" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="206.179670689447,227.539392646395">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.527271989277"
+              Start="0,0"
+              End="0,57.027271989277">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.027271989277" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="615.049971793344,334.409521773363">
@@ -3577,6 +3663,28 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,53.1666659555165" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="202.533351591395,420.333330699669">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1333326884765"
+              Start="0,0"
+              End="0,43.6333326884765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6333326884765" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3663,114 +3771,6 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="118.4,41.6"
-          Id="Package\ETL AQI"
-          TopLeft="145.8666825571,378.733330699669" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="205.850016732762,333.666664635672">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.0666660639975"
-              Start="0,0"
-              End="0,37.5666660639975">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5666660639975" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="202.116684947493,420.333330699669">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,69.333332561917"
-              Start="0,0"
-              End="0,61.833332561917">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.833332561917" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Select LSET, CET AQI"
-          TopLeft="115.033350908425,292.066664635672" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="206.179670689447,227.539392646395">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.527271989277"
-              Start="0,0"
-              End="0,57.027271989277">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.027271989277" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="140,41.6"
-          Id="Package\Truncate AQI"
-          TopLeft="135.72599047047,185.939392646395" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="208.665384467813,122.199999439518">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,63.7393932068771"
-              Start="0,0"
-              End="0,56.2393932068771">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.2393932068771" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Update CET AQI"
-          TopLeft="133.604778465156,80.5999994395176" />
-        <NodeLayout
-          Size="281.6,41.6"
-          Id="Package\Update LSET, STATUS, ROW_COUNT AQI"
-          TopLeft="58.3666873378876,489.666663261585" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3810,7 +3810,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
         <NodeLayout
           Size="168,41.6"
           Id="Package\ETL AQI\Add Status Column"
-          TopLeft="315.776497898247,363.546967168909" />
+          TopLeft="316.609831186049,363.546967168909" />
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\ETL AQI\Add SourceID 2022"
@@ -3825,18 +3825,18 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
           TopLeft="311.574057050418,454.466663912468" />
         <EdgeLayout
           Id="Package\ETL AQI.Paths[Union All Output 1]"
-          TopLeft="400.61740628756,328.249998006671">
+          TopLeft="401.034072931461,328.249998006671">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.2969691622378"
+              EndConnector="0,35.296969162238"
               Start="0,0"
-              End="0,27.7969691622378">
+              End="0,27.796969162238">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.7969691622378" />
+                    End="0,27.796969162238" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4037,18 +4037,18 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL AQI.Paths[Derived Column Output1]"
-          TopLeft="402.875277474333,405.146967168909">
+          TopLeft="403.291944118233,405.146967168909">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.3196967435595"
+              EndConnector="0,49.3196967435589"
               Start="0,0"
-              End="0,41.8196967435595">
+              End="0,41.8196967435589">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.8196967435595" />
+                    End="0,41.8196967435589" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4133,7 +4133,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
     design-time-name="Package\ETL County">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\ETL County\OLE DB Destination"
@@ -4169,9 +4169,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4193,9 +4191,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4217,9 +4213,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

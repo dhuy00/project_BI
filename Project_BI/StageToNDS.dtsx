@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{3BB67A88-75F7-4F95-A7FE-B71EF64FCA5A}">
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{7EAE67F6-DE26-4F76-A682-7369D7267B2D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -177,15 +177,15 @@
               </outputs>
             </component>
             <component
-              refId="Package\Stage AQI To NDS\Add Source Column"
+              refId="Package\Stage AQI To NDS\Add SourceID"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Add Source Column"
+              name="Add SourceID"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Stage AQI To NDS\Add Source Column.Inputs[Derived Column Input]"
+                  refId="Package\Stage AQI To NDS\Add SourceID.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -193,18 +193,18 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Output]"
+                  refId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Stage AQI To NDS\Add Source Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Stage AQI To NDS\Add SourceID.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Output].Columns[SourceID]"
+                      refId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Output].Columns[SourceID]"
+                      lineageId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]"
                       name="SourceID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -225,23 +225,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Error Output]"
+                  refId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Stage AQI To NDS\Add Source Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Stage AQI To NDS\Add SourceID.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -250,11 +250,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Stage AQI To NDS\Day NDS"
+              refId="Package\Stage AQI To NDS\Day Stage"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Day NDS"
+              name="Day Stage"
               usesDispositions="true"
               version="7">
               <properties>
@@ -274,8 +274,9 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DAY_VALUE, DAY_SK
-FROM DAY_NDS</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT DAY_VALUE,MONTH_VALUE, YEAR_VALUE, DAY_SK
+FROM DAY_NDS D JOIN MONTH_NDS M ON D.Month_id = M.Month_SK JOIN Quarter_NDS Q ON Q.Quarter_SK = M.Quarter_id JOIN
+Year_NDS Y ON Y.Year_SK = Q.Year_id</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -300,7 +301,7 @@ FROM DAY_NDS</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Stage AQI To NDS\Day NDS.Connections[OleDbConnection]"
+                  refId="Package\Stage AQI To NDS\Day Stage.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -308,65 +309,101 @@ FROM DAY_NDS</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output]"
+                  refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].Columns[DAY_VALUE]"
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[DAY_VALUE]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].ExternalColumns[DAY_VALUE]"
-                      lineageId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].Columns[DAY_VALUE]"
+                      externalMetadataColumnId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].ExternalColumns[DAY_VALUE]"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[DAY_VALUE]"
                       name="DAY_VALUE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].Columns[DAY_SK]"
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[DAY_SK]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].ExternalColumns[DAY_SK]"
-                      lineageId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].Columns[DAY_SK]"
+                      externalMetadataColumnId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].ExternalColumns[DAY_SK]"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[DAY_SK]"
                       name="DAY_SK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[MONTH_VALUE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].ExternalColumns[MONTH_VALUE]"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[MONTH_VALUE]"
+                      name="MONTH_VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[YEAR_VALUE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].ExternalColumns[YEAR_VALUE]"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[YEAR_VALUE]"
+                      name="YEAR_VALUE"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].ExternalColumns[DAY_VALUE]"
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].ExternalColumns[DAY_VALUE]"
                       dataType="i4"
                       name="DAY_VALUE" />
                     <externalMetadataColumn
-                      refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].ExternalColumns[DAY_SK]"
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].ExternalColumns[DAY_SK]"
                       dataType="i4"
                       name="DAY_SK" />
+                    <externalMetadataColumn
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].ExternalColumns[MONTH_VALUE]"
+                      dataType="i4"
+                      name="MONTH_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].ExternalColumns[YEAR_VALUE]"
+                      dataType="i4"
+                      name="YEAR_VALUE" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output].Columns[DAY_VALUE]"
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[DAY_VALUE]"
                       dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output].Columns[DAY_VALUE]"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[DAY_VALUE]"
                       name="DAY_VALUE" />
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output].Columns[DAY_SK]"
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[MONTH_VALUE]"
                       dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output].Columns[DAY_SK]"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[MONTH_VALUE]"
+                      name="MONTH_VALUE" />
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[YEAR_VALUE]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[YEAR_VALUE]"
+                      name="YEAR_VALUE" />
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[DAY_SK]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[DAY_SK]"
                       name="DAY_SK" />
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -410,7 +447,7 @@ where [refTable].[AQI_ID] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -426,7 +463,7 @@ where [refTable].[AQI_ID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="AQI_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AQI_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Day_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="County" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AQI" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Category" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DefiningParameter" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DefiningSite" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NumberOfSitesReporting" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Created" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastUpdated" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="AQI_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AQI_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Day_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="County" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AQI" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Category" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DefiningParameter" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DefiningSite" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NumberOfSitesReporting" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Created" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastUpdated" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -478,7 +515,6 @@ where [refTable].[AQI_ID] = ?</property>
                 <output
                   refId="Package\Stage AQI To NDS\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Stage AQI To NDS\Lookup.Inputs[Lookup Input]">
@@ -615,6 +651,16 @@ where [refTable].[AQI_ID] = ?</property>
                       cachedDataType="i4"
                       cachedName="Day"
                       lineageId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output].Columns[Day]" />
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join.Inputs[Merge Join Left Input].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      lineageId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join.Inputs[Merge Join Left Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      lineageId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output].Columns[Year]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -781,6 +827,32 @@ where [refTable].[AQI_ID] = ?</property>
                           name="InputColumnID">#{Package\Stage AQI To NDS\Merge Join.Inputs[Merge Join Right Input].Columns[County_SK]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[Month]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[Month]"
+                      name="Month">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Stage AQI To NDS\Merge Join.Inputs[Merge Join Left Input].Columns[Month]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[Year]"
+                      name="Year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Stage AQI To NDS\Merge Join.Inputs[Merge Join Left Input].Columns[Year]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -802,7 +874,7 @@ where [refTable].[AQI_ID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">1</property>
+                  name="NumKeyColumns">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the null values are treated as equal values."
@@ -874,6 +946,18 @@ where [refTable].[AQI_ID] = ?</property>
                       cachedDataType="i4"
                       cachedName="County_SK"
                       lineageId="Package\Stage AQI To NDS\Sort 1.Outputs[Sort Output].Columns[County_SK]" />
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Left Input].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Stage AQI To NDS\Sort 1.Outputs[Sort Output].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Left Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Stage AQI To NDS\Sort 1.Outputs[Sort Output].Columns[Year]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -887,12 +971,24 @@ where [refTable].[AQI_ID] = ?</property>
                       cachedDataType="i4"
                       cachedName="DAY_VALUE"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Stage AQI To NDS\Sort 5.Outputs[Sort Output].Columns[DAY_VALUE]" />
+                      lineageId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[DAY_VALUE]" />
                     <inputColumn
                       refId="Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Right Input].Columns[DAY_SK]"
                       cachedDataType="i4"
                       cachedName="DAY_SK"
-                      lineageId="Package\Stage AQI To NDS\Sort 5.Outputs[Sort Output].Columns[DAY_SK]" />
+                      lineageId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[DAY_SK]" />
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Right Input].Columns[MONTH_VALUE]"
+                      cachedDataType="i4"
+                      cachedName="MONTH_VALUE"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[MONTH_VALUE]" />
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Right Input].Columns[YEAR_VALUE]"
+                      cachedDataType="i4"
+                      cachedName="YEAR_VALUE"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[YEAR_VALUE]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -903,6 +999,19 @@ where [refTable].[AQI_ID] = ?</property>
                   isSorted="true"
                   name="Merge Join Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[DAY_SK]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[DAY_SK]"
+                      name="DAY_SK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Right Input].Columns[DAY_SK]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
                       refId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[Row_ID]"
                       dataType="i4"
@@ -1040,16 +1149,31 @@ where [refTable].[AQI_ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[DAY_SK]"
+                      refId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[Month]"
                       dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[DAY_SK]"
-                      name="DAY_SK">
+                      lineageId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[Month]"
+                      name="Month"
+                      sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Right Input].Columns[DAY_SK]}</property>
+                          name="InputColumnID">#{Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Left Input].Columns[Month]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output].Columns[Year]"
+                      name="Year"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Left Input].Columns[Year]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1204,7 +1328,7 @@ FROM Counties_NDS</property>
                   expressionType="Notify"
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE AirQualityData_NDS
-SET AQI_ID=?,
+SET AQI_ID = ?,
 Day_id = ?,
 County = ?,
 AQI = ?,
@@ -1547,7 +1671,7 @@ WHERE AQI_SK = ?</property>
                       cachedDataType="i4"
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\Stage AQI To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      lineageId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Output].Columns[SourceID]" />
+                      lineageId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
                     <inputColumn
                       refId="Package\Stage AQI To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Created]"
                       cachedDataType="dbTimeStamp"
@@ -1593,10 +1717,6 @@ WHERE AQI_SK = ?</property>
                       refId="Package\Stage AQI To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day_id]"
                       dataType="i4"
                       name="Day_id" />
-                    <externalMetadataColumn
-                      refId="Package\Stage AQI To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      dataType="i4"
-                      name="State" />
                     <externalMetadataColumn
                       refId="Package\Stage AQI To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[County]"
                       dataType="i4"
@@ -1840,6 +1960,38 @@ WHERE AQI_SK = ?</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Sort.Inputs[Sort Input].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      lineageId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Month]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Sort.Inputs[Sort Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      lineageId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1971,6 +2123,32 @@ WHERE AQI_SK = ?</property>
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Day]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output].Columns[Month]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output].Columns[Month]"
+                      name="Month">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Month]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output].Columns[Year]"
+                      name="Year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Year]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2167,6 +2345,38 @@ WHERE AQI_SK = ?</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Sort 1.Inputs[Sort Input].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      lineageId="Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[Month]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Sort 1.Inputs[Sort Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      lineageId="Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2313,6 +2523,191 @@ WHERE AQI_SK = ?</property>
                           name="SortColumnId">#{Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[County_SK]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Sort 1.Outputs[Sort Output].Columns[Month]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Sort 1.Outputs[Sort Output].Columns[Month]"
+                      name="Month"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[Month]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Sort 1.Outputs[Sort Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Sort 1.Outputs[Sort Output].Columns[Year]"
+                      name="Year"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output].Columns[Year]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stage AQI To NDS\Sort 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Stage AQI To NDS\Sort 2.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Sort 2.Inputs[Sort Input].Columns[DAY_VALUE]"
+                      cachedDataType="i4"
+                      cachedName="DAY_VALUE"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[DAY_VALUE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Sort 2.Inputs[Sort Input].Columns[DAY_SK]"
+                      cachedDataType="i4"
+                      cachedName="DAY_SK"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[DAY_SK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Sort 2.Inputs[Sort Input].Columns[MONTH_VALUE]"
+                      cachedDataType="i4"
+                      cachedName="MONTH_VALUE"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[MONTH_VALUE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage AQI To NDS\Sort 2.Inputs[Sort Input].Columns[YEAR_VALUE]"
+                      cachedDataType="i4"
+                      cachedName="YEAR_VALUE"
+                      lineageId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[YEAR_VALUE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[DAY_VALUE]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[DAY_VALUE]"
+                      name="DAY_VALUE"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[DAY_VALUE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[DAY_SK]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[DAY_SK]"
+                      name="DAY_SK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[DAY_SK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[MONTH_VALUE]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[MONTH_VALUE]"
+                      name="MONTH_VALUE"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[MONTH_VALUE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[YEAR_VALUE]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output].Columns[YEAR_VALUE]"
+                      name="YEAR_VALUE"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output].Columns[YEAR_VALUE]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2418,103 +2813,6 @@ WHERE AQI_SK = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Stage AQI To NDS\Sort 5"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort 5"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Stage AQI To NDS\Sort 5.Inputs[Sort Input]"
-                  name="Sort Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Stage AQI To NDS\Sort 5.Inputs[Sort Input].Columns[DAY_VALUE]"
-                      cachedDataType="i4"
-                      cachedName="DAY_VALUE"
-                      lineageId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].Columns[DAY_VALUE]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Stage AQI To NDS\Sort 5.Inputs[Sort Input].Columns[DAY_SK]"
-                      cachedDataType="i4"
-                      cachedName="DAY_SK"
-                      lineageId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].Columns[DAY_SK]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Stage AQI To NDS\Sort 5.Outputs[Sort Output]"
-                  isSorted="true"
-                  name="Sort Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage AQI To NDS\Sort 5.Outputs[Sort Output].Columns[DAY_VALUE]"
-                      dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Sort 5.Outputs[Sort Output].Columns[DAY_VALUE]"
-                      name="DAY_VALUE"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].Columns[DAY_VALUE]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage AQI To NDS\Sort 5.Outputs[Sort Output].Columns[DAY_SK]"
-                      dataType="i4"
-                      lineageId="Package\Stage AQI To NDS\Sort 5.Outputs[Sort Output].Columns[DAY_SK]"
-                      name="DAY_SK">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output].Columns[DAY_SK]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Stage AQI To NDS\Stage"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -2542,6 +2840,8 @@ WHERE AQI_SK = ?</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
     Row_ID, 
     DAY(Date) AS Day,
+    MONTH(Date) AS Month,
+    YEAR(Date) AS Year,
     AQI, 
     Category, 
     DefiningParameter, 
@@ -2672,6 +2972,24 @@ FROM
                       lineageId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Day]"
                       name="Day"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      lineageId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2716,6 +3034,14 @@ FROM
                       refId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[Day]"
                       dataType="i4"
                       name="Day" />
+                    <externalMetadataColumn
+                      refId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      dataType="i4"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2733,6 +3059,16 @@ FROM
                       dataType="i4"
                       lineageId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[Day]"
                       name="Day" />
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[Month]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[Month]"
+                      name="Month" />
+                    <outputColumn
+                      refId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
                     <outputColumn
                       refId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[AQI]"
                       dataType="i4"
@@ -2796,7 +3132,7 @@ FROM
               refId="Package\Stage AQI To NDS.Paths[Derived Column Output]"
               endId="Package\Stage AQI To NDS\Add Created, Updated.Inputs[Derived Column Input]"
               name="Derived Column Output"
-              startId="Package\Stage AQI To NDS\Add Source Column.Outputs[Derived Column Output]" />
+              startId="Package\Stage AQI To NDS\Add SourceID.Outputs[Derived Column Output]" />
             <path
               refId="Package\Stage AQI To NDS.Paths[Derived Column Output1]"
               endId="Package\Stage AQI To NDS\Lookup.Inputs[Lookup Input]"
@@ -2819,34 +3155,34 @@ FROM
               startId="Package\Stage AQI To NDS\Merge Join.Outputs[Merge Join Output]" />
             <path
               refId="Package\Stage AQI To NDS.Paths[Merge Join Output1]"
-              endId="Package\Stage AQI To NDS\Add Source Column.Inputs[Derived Column Input]"
+              endId="Package\Stage AQI To NDS\Add SourceID.Inputs[Derived Column Input]"
               name="Merge Join Output"
               startId="Package\Stage AQI To NDS\Merge Join 1.Outputs[Merge Join Output]" />
             <path
               refId="Package\Stage AQI To NDS.Paths[OLE DB Source Output]"
-              endId="Package\Stage AQI To NDS\Sort 3.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\Stage AQI To NDS\NDS County.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Stage AQI To NDS.Paths[OLE DB Source Output1]"
-              endId="Package\Stage AQI To NDS\Sort 5.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\Stage AQI To NDS\Day NDS.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Stage AQI To NDS.Paths[OLE DB Source Output2]"
               endId="Package\Stage AQI To NDS\Sort.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Stage AQI To NDS\Stage.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Stage AQI To NDS.Paths[Sort Output]"
-              endId="Package\Stage AQI To NDS\Merge Join.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output]" />
+              refId="Package\Stage AQI To NDS.Paths[OLE DB Source Output1]"
+              endId="Package\Stage AQI To NDS\Sort 3.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Stage AQI To NDS\NDS County.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Stage AQI To NDS.Paths[Sort Output1]"
+              refId="Package\Stage AQI To NDS.Paths[OLE DB Source Output2]"
+              endId="Package\Stage AQI To NDS\Sort 2.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Stage AQI To NDS\Day Stage.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Stage AQI To NDS.Paths[Sort Output]"
               endId="Package\Stage AQI To NDS\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Stage AQI To NDS\Sort 3.Outputs[Sort Output]" />
+            <path
+              refId="Package\Stage AQI To NDS.Paths[Sort Output1]"
+              endId="Package\Stage AQI To NDS\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Stage AQI To NDS\Sort.Outputs[Sort Output]" />
             <path
               refId="Package\Stage AQI To NDS.Paths[Sort Output2]"
               endId="Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Left Input]"
@@ -2856,7 +3192,7 @@ FROM
               refId="Package\Stage AQI To NDS.Paths[Sort Output3]"
               endId="Package\Stage AQI To NDS\Merge Join 1.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\Stage AQI To NDS\Sort 5.Outputs[Sort Output]" />
+              startId="Package\Stage AQI To NDS\Sort 2.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3085,7 +3421,7 @@ where [refTable].[County_fips] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -3154,7 +3490,6 @@ where [refTable].[County_fips] = ?</property>
                 <output
                   refId="Package\Stage County To NDS\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Stage County To NDS\Lookup.Inputs[Lookup Input]">
@@ -5003,7 +5338,7 @@ where [refTable].[Day_value] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -5019,7 +5354,7 @@ where [refTable].[Day_value] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Day_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Day_name" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Day_value" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Day_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Day_value" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -5071,7 +5406,6 @@ where [refTable].[Day_value] = ?</property>
                 <output
                   refId="Package\Stage Day To NDS\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Stage Day To NDS\Lookup.Inputs[Lookup Input]">
@@ -5252,7 +5586,8 @@ where [refTable].[Day_value] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT MONTH_SK, MONTH_VALUE
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+MONTH_SK, MONTH_VALUE
 FROM MONTH_NDS</property>
                 <property
                   dataType="System.String"
@@ -5576,10 +5911,6 @@ WHERE DAY_SK = ?</property>
                       dataType="i4"
                       name="Day_SK" />
                     <externalMetadataColumn
-                      refId="Package\Stage Day To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day_name]"
-                      dataType="i4"
-                      name="Day_name" />
-                    <externalMetadataColumn
                       refId="Package\Stage Day To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day_value]"
                       dataType="i4"
                       name="Day_value" />
@@ -5834,7 +6165,7 @@ WHERE DAY_SK = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
     MONTH(Date) AS Month,
     DAY(Date) AS Day
 FROM 
@@ -6028,7 +6359,7 @@ where [refTable].[Month_value] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -6044,7 +6375,7 @@ where [refTable].[Month_value] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Month_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month_name" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month_value" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Month_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month_value" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -6096,7 +6427,6 @@ where [refTable].[Month_value] = ?</property>
                 <output
                   refId="Package\Stage Month To NDS\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Stage Month To NDS\Lookup.Inputs[Lookup Input]">
@@ -6475,10 +6805,6 @@ WHERE Month_SK = ?</property>
                       refId="Package\Stage Month To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month_SK]"
                       dataType="i4"
                       name="Month_SK" />
-                    <externalMetadataColumn
-                      refId="Package\Stage Month To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month_name]"
-                      dataType="i4"
-                      name="Month_name" />
                     <externalMetadataColumn
                       refId="Package\Stage Month To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month_value]"
                       dataType="i4"
@@ -7053,7 +7379,7 @@ where [refTable].[Quarter_value] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -7121,7 +7447,6 @@ where [refTable].[Quarter_value] = ?</property>
                 <output
                   refId="Package\Stage Quarter To NDS\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Stage Quarter To NDS\Lookup.Inputs[Lookup Input]">
@@ -8296,17 +8621,13 @@ FROM YEAR_NDS</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT State_code, State_SK
-FROM State_NDS 
-WHERE SourceID = 1</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[State_NDS]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT State_code, State_SK
-FROM State_NDS 
-WHERE SourceID = 1) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[State_NDS]) [refTable]
 where [refTable].[State_code] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -8322,7 +8643,7 @@ where [refTable].[State_code] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -8338,7 +8659,7 @@ where [refTable].[State_code] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="State_code" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="State_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State_code" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StateName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State_id" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Created" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastUpdated" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -8390,7 +8711,6 @@ where [refTable].[State_code] = ?</property>
                 <output
                   refId="Package\Stage State To NDS\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Stage State To NDS\Lookup.Inputs[Lookup Input]">
@@ -8491,13 +8811,6 @@ State_SK = ?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[StateName]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="StateName"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateName]" />
-                    <inputColumn
                       refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[State_id]"
                       cachedDataType="wstr"
                       cachedLength="5"
@@ -8517,6 +8830,13 @@ State_SK = ?</property>
                       cachedName="State_SK"
                       externalMetadataColumnId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Stage State To NDS\Lookup.Outputs[Lookup Match Output].Columns[State_SK]" />
+                    <inputColumn
+                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[State_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State_name"
+                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8674,13 +8994,6 @@ State_SK = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateName]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="StateName"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateName]" />
-                    <inputColumn
                       refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State_id]"
                       cachedDataType="wstr"
                       cachedLength="5"
@@ -8700,17 +9013,24 @@ State_SK = ?</property>
                       externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created]"
                       lineageId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Created]" />
                     <inputColumn
+                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of StateCode]"
+                      cachedDataType="i4"
+                      cachedName="Copy of StateCode"
+                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_code]"
+                      lineageId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]" />
+                    <inputColumn
                       refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Updated]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Updated"
                       externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdated]"
                       lineageId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Updated]" />
                     <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of StateCode]"
-                      cachedDataType="i4"
-                      cachedName="Copy of StateCode"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_code]"
-                      lineageId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]" />
+                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State_name"
+                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8801,11 +9121,12 @@ State_SK = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT CAST(StateCode AS INT) AS StateCode,
-                StateName,  
-                State_id
-FROM Counties_Stage C 
-JOIN AirQualityData_Stage AQI ON C.County_fips = AQI.County_fips;</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+    CAST(LEFT(County_fips, 2) AS INT) AS StateCode,
+    State_name,  
+    State_id
+FROM 
+    Counties_Stage C;</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -8842,16 +9163,6 @@ JOIN AirQualityData_Stage AQI ON C.County_fips = AQI.County_fips;</property>
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateName]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
-                      length="100"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateName]"
-                      name="StateName"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
@@ -8871,14 +9182,19 @@ JOIN AirQualityData_Stage AQI ON C.County_fips = AQI.County_fips;</property>
                       lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]"
                       name="State_id"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_name]"
+                      length="255"
+                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]"
+                      name="State_name"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
-                      dataType="wstr"
-                      length="100"
-                      name="StateName" />
                     <externalMetadataColumn
                       refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
                       dataType="i4"
@@ -8888,6 +9204,11 @@ JOIN AirQualityData_Stage AQI ON C.County_fips = AQI.County_fips;</property>
                       dataType="wstr"
                       length="5"
                       name="State_id" />
+                    <externalMetadataColumn
+                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="State_name" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -8896,16 +9217,16 @@ JOIN AirQualityData_Stage AQI ON C.County_fips = AQI.County_fips;</property>
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[StateName]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[StateName]"
-                      name="StateName" />
-                    <outputColumn
                       refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[StateCode]"
                       dataType="i4"
                       lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[StateCode]"
                       name="StateCode" />
+                    <outputColumn
+                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_name]"
+                      name="State_name" />
                     <outputColumn
                       refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_id]"
                       dataType="wstr"
@@ -9015,7 +9336,7 @@ where [refTable].[Year_value] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -9083,7 +9404,6 @@ where [refTable].[Year_value] = ?</property>
                 <output
                   refId="Package\State Year To NDS\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\State Year To NDS\Lookup.Inputs[Lookup Input]">
@@ -9766,210 +10086,28 @@ FROM
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="121.6,41.6"
-          Id="Package\Stage AQI To NDS\Day NDS"
-          TopLeft="559.666658326984,484.733326124019" />
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Stage AQI To NDS\OLE DB Command"
-          TopLeft="846.833322608637,929.133325642414" />
+          Size="97.6,41.6"
+          Id="Package\Stage AQI To NDS\Sort"
+          TopLeft="160.666656093465,126.100001167424" />
         <NodeLayout
           Size="105.6,41.6"
           Id="Package\Stage AQI To NDS\Sort 3"
-          TopLeft="477.619040766879,349.952375564736" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Stage AQI To NDS\Add Source Column"
-          TopLeft="395.333327442408,731.733327015241" />
+          TopLeft="432.452374773248,136.119045417768" />
         <NodeLayout
           Size="105.6,41.6"
           Id="Package\Stage AQI To NDS\Stage"
-          TopLeft="206.261898277653,243.18095043786" />
-        <NodeLayout
-          Size="182.4,41.6"
-          Id="Package\Stage AQI To NDS\Add Created, Updated"
-          TopLeft="407.833327156802,826.266660139958" />
+          TopLeft="161.095232284022,29.3476202908914" />
         <NodeLayout
           Size="136,41.6"
           Id="Package\Stage AQI To NDS\NDS County"
-          TopLeft="468.333326619532,245.666662833" />
-        <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[OLE DB Source Output]"
-          TopLeft="533.576183693206,287.266662833">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62.6857127317361"
-              Start="0,0"
-              End="0,55.1857127317361">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55.1857127317361" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[Derived Column Output]"
-          TopLeft="480.933327442408,773.333327015241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="18.099999714394,52.933333124717"
-              Start="0,0"
-              End="18.099999714394,45.433333124717">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.4666665623585" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.4666665623585"
-                    Point2="0,26.4666665623585"
-                    Point3="4,26.4666665623585" />
-                  <mssgle:LineSegment
-                    End="14.099999714394,26.4666665623585" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14.099999714394,26.4666665623585"
-                    Point2="18.099999714394,26.4666665623585"
-                    Point3="18.099999714394,30.4666665623585" />
-                  <mssgle:LineSegment
-                    End="18.099999714394,45.433333124717" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Stage AQI To NDS\Sort 5"
-          TopLeft="565.733302554158,565.266665467355" />
-        <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[OLE DB Source Output1]"
-          TopLeft="619.699980440571,526.333326124019">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.933339343336"
-              Start="0,0"
-              End="0,31.433339343336">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.433339343336" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Stage AQI To NDS\Lookup"
-          TopLeft="721.733300368655,829.06666432831" />
-        <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[Derived Column Output1]"
-          TopLeft="590.233327156802,848.466662234134">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="131.499973211853,0"
-              Start="0,0"
-              End="123.999973211853,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="123.999973211853,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[Lookup Match Output]"
-          TopLeft="778.133300368655,870.66666432831">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="152.300022239982,58.4666613141037"
-              Start="0,0"
-              End="152.300022239982,50.9666613141037">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.2333306570519" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.2333306570519"
-                    Point2="0,29.2333306570519"
-                    Point3="4,29.2333306570519" />
-                  <mssgle:LineSegment
-                    End="148.300022239982,29.2333306570519" />
-                  <mssgle:CubicBezierSegment
-                    Point1="148.300022239982,29.2333306570519"
-                    Point2="152.300022239982,29.2333306570519"
-                    Point3="152.300022239982,33.2333306570519" />
-                  <mssgle:LineSegment
-                    End="152.300022239982,50.9666613141037" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="27.958624401241,34.2333306570519,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Stage AQI To NDS\Sort"
-          TopLeft="205.833322087096,339.933331314392" />
-        <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[OLE DB Source Output2]"
-          TopLeft="256.847610182375,284.78095043786">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55.1523808765318"
-              Start="0,0"
-              End="0,47.6523808765318">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.6523808765318" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="423.166660625901,31.8333326860315" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Stage AQI To NDS\Merge Join"
-          TopLeft="245.833319901593,444.066664997273" />
+          TopLeft="200.666653907962,230.233334850304" />
         <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[Sort Output]"
-          TopLeft="254.633322087096,381.533331314392">
+          Id="Package\Stage AQI To NDS.Paths[Sort Output1]"
+          TopLeft="209.466656093465,167.700001167424">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10002,8 +10140,8 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[Sort Output1]"
-          TopLeft="530.419040766879,391.552375564736">
+          Id="Package\Stage AQI To NDS.Paths[Sort Output]"
+          TopLeft="485.252374773248,177.719045417768">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10035,36 +10173,98 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Stage AQI To NDS\Sort 1"
-          TopLeft="288.333317579495,540.599998354713" />
         <EdgeLayout
-          Id="Package\Stage AQI To NDS.Paths[Merge Join Output]"
-          TopLeft="310.633319901593,485.666664997273">
+          Id="Package\Stage AQI To NDS.Paths[OLE DB Source Output1]"
+          TopLeft="488.409517699575,73.4333326860315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="30.8999976779025,54.9333333574401"
+              EndConnector="0,62.6857127317361"
               Start="0,0"
-              End="30.8999976779025,47.4333333574401">
+              End="0,55.1857127317361">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.4666666787201" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.4666666787201"
-                    Point2="0,27.4666666787201"
-                    Point3="4,27.4666666787201" />
+                    End="0,55.1857127317361" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage AQI To NDS.Paths[OLE DB Source Output]"
+          TopLeft="211.680944188744,70.9476202908915">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.1523808765318"
+              Start="0,0"
+              End="0,47.6523808765318">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="26.8999976779025,27.4666666787201" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.8999976779025,27.4666666787201"
-                    Point2="30.8999976779025,27.4666666787201"
-                    Point3="30.8999976779025,31.4666666787201" />
+                    End="0,47.6523808765318" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\Stage AQI To NDS\Day Stage"
+          TopLeft="550.99999178946,241.999996393919" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Stage AQI To NDS\Sort 1"
+          TopLeft="212.999996826053,343.999994874001" />
+        <EdgeLayout
+          Id="Package\Stage AQI To NDS.Paths[Merge Join Output]"
+          TopLeft="265.833325367007,271.833334850304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.1666600236962"
+              Start="0,0"
+              End="0,64.6666600236962">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="30.8999976779025,47.4333333574401" />
+                    End="0,64.6666600236962" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Stage AQI To NDS\Sort 2"
+          TopLeft="567.999991536141,353.999994724989" />
+        <EdgeLayout
+          Id="Package\Stage AQI To NDS.Paths[OLE DB Source Output2]"
+          TopLeft="617.899991662801,283.599996393919">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.3999983310699"
+              Start="0,0"
+              End="0,62.8999983310699">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.8999983310699" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10076,33 +10276,33 @@ FROM
         <NodeLayout
           Size="138.4,41.6"
           Id="Package\Stage AQI To NDS\Merge Join 1"
-          TopLeft="364.166646769478,635.93333102511" />
+          TopLeft="298.999995544553,466.999993041158" />
         <EdgeLayout
           Id="Package\Stage AQI To NDS.Paths[Sort Output2]"
-          TopLeft="341.533317579495,582.199998354713">
+          TopLeft="266.199996826053,385.599994874001">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="91.8333291899826,53.7333326703971"
+              EndConnector="80.2666653851668,81.3999981671571"
               Start="0,0"
-              End="91.8333291899826,46.2333326703971">
+              End="80.2666653851668,73.8999981671571">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.8666663351985" />
+                    End="0,44.2818274842909" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.8666663351985"
-                    Point2="0,26.8666663351985"
-                    Point3="4,26.8666663351985" />
+                    Point1="0,44.2818274842909"
+                    Point2="0,48.2818274842909"
+                    Point3="4,48.2818274842909" />
                   <mssgle:LineSegment
-                    End="87.8333291899826,26.8666663351985" />
+                    End="76.2666653851668,48.2818274842909" />
                   <mssgle:CubicBezierSegment
-                    Point1="87.8333291899826,26.8666663351985"
-                    Point2="91.8333291899826,26.8666663351985"
-                    Point3="91.8333291899826,30.8666663351985" />
+                    Point1="76.2666653851668,48.2818274842909"
+                    Point2="80.2666653851668,48.2818274842909"
+                    Point3="80.2666653851668,52.2818274842909" />
                   <mssgle:LineSegment
-                    End="91.8333291899826,46.2333326703971" />
+                    End="80.2666653851668,73.8999981671571" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10113,30 +10313,30 @@ FROM
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage AQI To NDS.Paths[Sort Output3]"
-          TopLeft="618.933302554158,606.866665467355">
+          TopLeft="621.199991536141,395.599994724989">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-163.833322451347,29.0666655577553"
+              EndConnector="-231.266662658254,71.3999983161688"
               Start="0,0"
-              End="-163.833322451347,21.5666655577553">
+              End="-231.266662658254,63.8999983161688">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.2406850565429" />
+                    End="0,38.3503990012476" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.2406850565429"
-                    Point2="0,17.2406850565429"
-                    Point3="-4,17.2406850565429" />
+                    Point1="0,38.3503990012476"
+                    Point2="0,42.3503990012476"
+                    Point3="-4,42.3503990012476" />
                   <mssgle:LineSegment
-                    End="-159.833322451347,17.2406850565429" />
+                    End="-227.266662658254,42.3503990012476" />
                   <mssgle:CubicBezierSegment
-                    Point1="-159.833322451347,17.2406850565429"
-                    Point2="-163.833322451347,17.2406850565429"
-                    Point3="-163.833322451347,21.2406850565429" />
+                    Point1="-227.266662658254,42.3503990012476"
+                    Point2="-231.266662658254,42.3503990012476"
+                    Point3="-231.266662658254,46.3503990012476" />
                   <mssgle:LineSegment
-                    End="-163.833322451347,21.5666655577553" />
+                    End="-231.266662658254,63.8999983161688" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10145,32 +10345,88 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Stage AQI To NDS\Add SourceID"
+          TopLeft="290.999995663762,553.999991744757" />
         <EdgeLayout
           Id="Package\Stage AQI To NDS.Paths[Merge Join Output1]"
-          TopLeft="433.366646769478,677.53333102511">
+          TopLeft="365.399995604157,508.599993041158">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="47.56668067293,54.1999959901307"
+              EndConnector="0,45.399998703599"
               Start="0,0"
-              End="47.56668067293,46.6999959901307">
+              End="0,37.899998703599">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.0999979950653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.0999979950653"
-                    Point2="0,27.0999979950653"
-                    Point3="4,27.0999979950653" />
+                    End="0,37.899998703599" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Stage AQI To NDS\Add Created, Updated"
+          TopLeft="268.999995991588,640.584606363682" />
+        <EdgeLayout
+          Id="Package\Stage AQI To NDS.Paths[Derived Column Output]"
+          TopLeft="361.199995827675,595.599991744757">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.984614618925"
+              Start="0,0"
+              End="0,37.484614618925">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="43.56668067293,27.0999979950653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="43.56668067293,27.0999979950653"
-                    Point2="47.56668067293,27.0999979950653"
-                    Point3="47.56668067293,31.0999979950653" />
+                    End="0,37.484614618925" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Stage AQI To NDS\Lookup"
+          TopLeft="559.99999165535,588.769225920622" />
+        <EdgeLayout
+          Id="Package\Stage AQI To NDS.Paths[Derived Column Output1]"
+          TopLeft="450.599995991588,661.384606363682">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.399995663762,-51.8153804430597"
+              Start="0,0"
+              End="101.899995663762,-51.8153804430597">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="47.56668067293,46.6999959901307" />
+                    End="50.699997831881,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.699997831881,0"
+                    Point2="54.699997831881,0"
+                    Point3="54.699997831881,-4" />
+                  <mssgle:LineSegment
+                    End="54.699997831881,-47.8153804430597" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.699997831881,-47.8153804430597"
+                    Point2="54.699997831881,-51.8153804430597"
+                    Point3="58.699997831881,-51.8153804430597" />
+                  <mssgle:LineSegment
+                    End="101.899995663762,-51.8153804430597" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10182,40 +10438,80 @@ FROM
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Stage AQI To NDS\OLE DB Destination"
-          TopLeft="987.199951918922,733.733331657913" />
+          TopLeft="753.846142612971,513.384611659325" />
         <EdgeLayout
           Id="Package\Stage AQI To NDS.Paths[Lookup No Match Output]"
-          TopLeft="778.133300368655,829.06666432831">
+          TopLeft="616.39999165535,588.769225920622">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="294.666651550267,-53.7333326703972"
+              EndConnector="223.046150957621,-33.7846142612971"
               Start="0,0"
-              End="294.666651550267,-46.2333326703972">
+              End="223.046150957621,-26.2846142612971">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-22.8666663351986" />
+                    End="0,-12.8923071306485" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-22.8666663351986"
-                    Point2="0,-26.8666663351986"
-                    Point3="4,-26.8666663351986" />
+                    Point1="0,-12.8923071306485"
+                    Point2="0,-16.8923071306485"
+                    Point3="4,-16.8923071306485" />
                   <mssgle:LineSegment
-                    End="290.666651550267,-26.8666663351986" />
+                    End="219.046150957621,-16.8923071306485" />
                   <mssgle:CubicBezierSegment
-                    Point1="290.666651550267,-26.8666663351986"
-                    Point2="294.666651550267,-26.8666663351986"
-                    Point3="294.666651550267,-30.8666663351986" />
+                    Point1="219.046150957621,-16.8923071306485"
+                    Point2="223.046150957621,-16.8923071306485"
+                    Point3="223.046150957621,-20.8923071306485" />
                   <mssgle:LineSegment
-                    End="294.666651550267,-46.2333326703972" />
+                    End="223.046150957621,-26.2846142612971" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="91.5269390563836,-21.8666663351986,111.6127734375,11.609375"
+              BoundingBox="55.7166887600606,-11.8923071306485,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Stage AQI To NDS\OLE DB Command"
+          TopLeft="737.999990222546,674.615378689307" />
+        <EdgeLayout
+          Id="Package\Stage AQI To NDS.Paths[Lookup Match Output]"
+          TopLeft="616.39999165535,630.369225920622">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="205.199998567196,44.2461527686853"
+              Start="0,0"
+              End="205.199998567196,36.7461527686853">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1230763843427" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1230763843427"
+                    Point2="0,22.1230763843427"
+                    Point3="4,22.1230763843427" />
+                  <mssgle:LineSegment
+                    End="201.199998567196,22.1230763843427" />
+                  <mssgle:CubicBezierSegment
+                    Point1="201.199998567196,22.1230763843427"
+                    Point2="205.199998567196,22.1230763843427"
+                    Point3="205.199998567196,26.1230763843427" />
+                  <mssgle:LineSegment
+                    End="205.199998567196,36.7461527686853" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="54.408612564848,27.1230763843427,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10223,7 +10519,7 @@ FROM
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage AQI To NDS\Day NDS">
+    design-time-name="Package\Stage AQI To NDS\NDS County">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10238,47 +10534,39 @@ FROM
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Stage AQI To NDS\NDS County">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Stage County To NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="105.6,41.6"
-          Id="Package\Stage County To NDS\Stage"
-          TopLeft="302.499983472129,11.2666665883197" />
+          Size="129.6,41.6"
+          Id="Package\Stage County To NDS\Merge Join"
+          TopLeft="454.999975139897,224.599998499354" />
         <NodeLayout
           Size="181.6,41.6"
           Id="Package\Stage County To NDS\Add SourceID Column"
           TopLeft="259.166652506425,412.866663984789" />
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Stage County To NDS\Merge Join"
-          TopLeft="454.999975139897,224.599998499354" />
+          Size="106.4,41.6"
+          Id="Package\Stage County To NDS\Sort 1"
+          TopLeft="626.666632427111,104.133332670397" />
+        <NodeLayout
+          Size="105.6,41.6"
+          Id="Package\Stage County To NDS\Stage"
+          TopLeft="302.499983472129,11.2666665883197" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Stage County To NDS\Sort"
+          TopLeft="299.999983608723,119.733332561917" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Stage County To NDS\OLE DB Destination"
           TopLeft="114.999993716677,629.533329217104" />
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Stage County To NDS\Sort 1"
-          TopLeft="626.666632427111,104.133332670397" />
-        <NodeLayout
           Size="112.8,41.6"
           Id="Package\Stage County To NDS\Lookup"
           TopLeft="297.499983745317,522.066663225426" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Stage County To NDS\Sort"
-          TopLeft="299.999983608723,119.733332561917" />
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Stage County To NDS\OLE DB Command"
@@ -10583,7 +10871,7 @@ FROM
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10593,7 +10881,7 @@ FROM
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10618,6 +10906,18 @@ FROM
           Id="Package\Stage Day To NDS\Stage"
           TopLeft="226.999996617436,54.9999991804361" />
         <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Stage Day To NDS\OLE DB Destination"
+          TopLeft="165.999997526407,444.999993368983" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Stage Day To NDS\OLE DB Command"
+          TopLeft="610.999990895391,483.999992787838" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Stage Day To NDS\Merge Join"
+          TopLeft="375.999994397164,239.999996423721" />
+        <NodeLayout
           Size="132,41.6"
           Id="Package\Stage Day To NDS\Month NDS"
           TopLeft="505.999992460012,64.9999990314246" />
@@ -10625,58 +10925,40 @@ FROM
           Size="97.6,41.6"
           Id="Package\Stage Day To NDS\Sort"
           TopLeft="229.999996572733,147.999997794628" />
-        <EdgeLayout
-          Id="Package\Stage Day To NDS.Paths[OLE DB Source Output]"
-          TopLeft="279.299996595085,96.5999991804361">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.3999986141921"
-              Start="0,0"
-              End="0,43.8999986141921">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.8999986141921" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Stage Day To NDS\Lookup"
+          TopLeft="385.999994248152,336.999994978309" />
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\Stage Day To NDS\Sort 1"
           TopLeft="527.999992132187,147.999997794628" />
         <EdgeLayout
-          Id="Package\Stage Day To NDS.Paths[OLE DB Source Output1]"
-          TopLeft="571.999992460012,106.599999031425">
+          Id="Package\Stage Day To NDS.Paths[Sort Output1]"
+          TopLeft="581.199992132187,189.599997794628">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.19999967217473,41.3999987632037"
+              EndConnector="-120.133331068357,50.3999986290931"
               Start="0,0"
-              End="9.19999967217473,33.8999987632037">
+              End="-120.133331068357,42.8999986290931">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.6999993816018" />
+                    End="0,25.871218699682" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.6999993816018"
-                    Point2="0,20.6999993816018"
-                    Point3="4,20.6999993816018" />
+                    Point1="0,25.871218699682"
+                    Point2="0,29.871218699682"
+                    Point3="-4,29.871218699682" />
                   <mssgle:LineSegment
-                    End="5.19999967217473,20.6999993816018" />
+                    End="-116.133331068357,29.871218699682" />
                   <mssgle:CubicBezierSegment
-                    Point1="5.19999967217473,20.6999993816018"
-                    Point2="9.19999967217473,20.6999993816018"
-                    Point3="9.19999967217473,24.6999993816018" />
+                    Point1="-116.133331068357,29.871218699682"
+                    Point2="-120.133331068357,29.871218699682"
+                    Point3="-120.133331068357,33.871218699682" />
                   <mssgle:LineSegment
-                    End="9.19999967217473,33.8999987632037" />
+                    End="-120.133331068357,42.8999986290931" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10685,10 +10967,6 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Stage Day To NDS\Merge Join"
-          TopLeft="375.999994397164,239.999996423721" />
         <EdgeLayout
           Id="Package\Stage Day To NDS.Paths[Sort Output]"
           TopLeft="278.799996572733,189.599997794628">
@@ -10724,31 +11002,31 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage Day To NDS.Paths[Sort Output1]"
-          TopLeft="581.199992132187,189.599997794628">
+          Id="Package\Stage Day To NDS.Paths[OLE DB Source Output1]"
+          TopLeft="571.999992460012,106.599999031425">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-120.133331068357,50.3999986290931"
+              EndConnector="9.19999967217473,41.3999987632037"
               Start="0,0"
-              End="-120.133331068357,42.8999986290931">
+              End="9.19999967217473,33.8999987632037">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.871218699682" />
+                    End="0,16.6999993816018" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.871218699682"
-                    Point2="0,29.871218699682"
-                    Point3="-4,29.871218699682" />
+                    Point1="0,16.6999993816018"
+                    Point2="0,20.6999993816018"
+                    Point3="4,20.6999993816018" />
                   <mssgle:LineSegment
-                    End="-116.133331068357,29.871218699682" />
+                    End="5.19999967217473,20.6999993816018" />
                   <mssgle:CubicBezierSegment
-                    Point1="-116.133331068357,29.871218699682"
-                    Point2="-120.133331068357,29.871218699682"
-                    Point3="-120.133331068357,33.871218699682" />
+                    Point1="5.19999967217473,20.6999993816018"
+                    Point2="9.19999967217473,20.6999993816018"
+                    Point3="9.19999967217473,24.6999993816018" />
                   <mssgle:LineSegment
-                    End="-120.133331068357,42.8999986290931" />
+                    End="9.19999967217473,33.8999987632037" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10757,10 +11035,28 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Stage Day To NDS\Lookup"
-          TopLeft="385.999994248152,336.999994978309" />
+        <EdgeLayout
+          Id="Package\Stage Day To NDS.Paths[OLE DB Source Output]"
+          TopLeft="279.299996595085,96.5999991804361">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.3999986141921"
+              Start="0,0"
+              End="0,43.8999986141921">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.8999986141921" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage Day To NDS.Paths[Merge Join Output]"
           TopLeft="441.599994322658,281.599996423721">
@@ -10783,10 +11079,6 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Stage Day To NDS\OLE DB Destination"
-          TopLeft="165.999997526407,444.999993368983" />
         <EdgeLayout
           Id="Package\Stage Day To NDS.Paths[Lookup No Match Output]"
           TopLeft="442.399994248152,378.599994978309">
@@ -10823,10 +11115,6 @@ FROM
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Stage Day To NDS\OLE DB Command"
-          TopLeft="610.999990895391,483.999992787838" />
         <EdgeLayout
           Id="Package\Stage Day To NDS.Paths[Lookup Match Output]"
           TopLeft="459.866660914819,378.599994978309">
@@ -10866,95 +11154,129 @@ FROM
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage Day To NDS\Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage Day To NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage Day To NDS\Month NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage Day To NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Day_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Stage Month To NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\Stage Month To NDS\YEAR_NDS"
-          TopLeft="383,61.000000461936" />
+          Size="97.6,41.6"
+          Id="Package\Stage Month To NDS\Sort"
+          TopLeft="203.999996960163,149.999997764826" />
         <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Stage Month To NDS\OLE DB Destination"
-          TopLeft="112.000000014901,463.999999418855" />
-        <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\Stage Month To NDS\OLE DB Command"
-          TopLeft="408.999999597669,458.999999642372" />
+          Size="106.4,41.6"
+          Id="Package\Stage Month To NDS\Sort 1"
+          TopLeft="397.999994069338,158.999997630715" />
         <NodeLayout
           Size="108,41.6"
           Id="Package\Stage Month To NDS\Stage"
           TopLeft="187.999994114041,60" />
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Stage Month To NDS\Sort 1"
-          TopLeft="397.999994069338,158.999997630715" />
-        <EdgeLayout
-          Id="Package\Stage Month To NDS.Paths[OLE DB Source Output]"
-          TopLeft="451.499997034669,102.600000461936">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56.3999971687794"
-              Start="0,0"
-              End="0,48.8999971687794">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.8999971687794" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Stage Month To NDS\Sort"
-          TopLeft="203.999996960163,149.999997764826" />
-        <EdgeLayout
-          Id="Package\Stage Month To NDS.Paths[OLE DB Source Output1]"
-          TopLeft="241.999994114041,101.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.8000028461222,48.3999977648259"
-              Start="0,0"
-              End="10.8000028461222,40.8999977648259">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1999988824129" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.1999988824129"
-                    Point2="0,24.1999988824129"
-                    Point3="4,24.1999988824129" />
-                  <mssgle:LineSegment
-                    End="6.8000028461222,24.1999988824129" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.8000028461222,24.1999988824129"
-                    Point2="10.8000028461222,24.1999988824129"
-                    Point3="10.8000028461222,28.1999988824129" />
-                  <mssgle:LineSegment
-                    End="10.8000028461222,40.8999977648259" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="176.8,41.6"
+          Id="Package\Stage Month To NDS\OLE DB Destination"
+          TopLeft="112.000000014901,463.999999418855" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Stage Month To NDS\Merge Join"
           TopLeft="259.999996125698,252.999996230006" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Stage Month To NDS\OLE DB Command"
+          TopLeft="408.999999597669,458.999999642372" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Stage Month To NDS\YEAR_NDS"
+          TopLeft="383,61.000000461936" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Stage Month To NDS\Lookup"
+          TopLeft="278.999995842576,361.99999460578" />
+        <EdgeLayout
+          Id="Package\Stage Month To NDS.Paths[Sort Output1]"
+          TopLeft="451.199994069338,200.599997630715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.133331276973,52.3999985992909"
+              Start="0,0"
+              End="-106.133331276973,44.8999985992909">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0565845356773" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0565845356773"
+                    Point2="0,31.0565845356773"
+                    Point3="-4,31.0565845356773" />
+                  <mssgle:LineSegment
+                    End="-102.133331276973,31.0565845356773" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.133331276973,31.0565845356773"
+                    Point2="-106.133331276973,31.0565845356773"
+                    Point3="-106.133331276973,35.0565845356773" />
+                  <mssgle:LineSegment
+                    End="-106.133331276973,44.8999985992909" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage Month To NDS.Paths[Sort Output]"
           TopLeft="252.799996960163,191.599997764826">
@@ -10990,31 +11312,31 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage Month To NDS.Paths[Sort Output1]"
-          TopLeft="451.199994069338,200.599997630715">
+          Id="Package\Stage Month To NDS.Paths[OLE DB Source Output1]"
+          TopLeft="241.999994114041,101.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-106.133331276973,52.3999985992909"
+              EndConnector="10.8000028461222,48.3999977648259"
               Start="0,0"
-              End="-106.133331276973,44.8999985992909">
+              End="10.8000028461222,40.8999977648259">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.0565845356773" />
+                    End="0,20.1999988824129" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.0565845356773"
-                    Point2="0,31.0565845356773"
-                    Point3="-4,31.0565845356773" />
+                    Point1="0,20.1999988824129"
+                    Point2="0,24.1999988824129"
+                    Point3="4,24.1999988824129" />
                   <mssgle:LineSegment
-                    End="-102.133331276973,31.0565845356773" />
+                    End="6.8000028461222,24.1999988824129" />
                   <mssgle:CubicBezierSegment
-                    Point1="-102.133331276973,31.0565845356773"
-                    Point2="-106.133331276973,31.0565845356773"
-                    Point3="-106.133331276973,35.0565845356773" />
+                    Point1="6.8000028461222,24.1999988824129"
+                    Point2="10.8000028461222,24.1999988824129"
+                    Point3="10.8000028461222,28.1999988824129" />
                   <mssgle:LineSegment
-                    End="-106.133331276973,44.8999985992909" />
+                    End="10.8000028461222,40.8999977648259" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11023,10 +11345,28 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Stage Month To NDS\Lookup"
-          TopLeft="278.999995842576,361.99999460578" />
+        <EdgeLayout
+          Id="Package\Stage Month To NDS.Paths[OLE DB Source Output]"
+          TopLeft="451.499997034669,102.600000461936">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.3999971687794"
+              Start="0,0"
+              End="0,48.8999971687794">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.8999971687794" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage Month To NDS.Paths[Merge Join Output]"
           TopLeft="324.799996125698,294.599996230006">
@@ -11093,7 +11433,7 @@ FROM
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-123.306384632587,35.2000024065375,111.6127734375,11.609375"
+              BoundingBox="-123.306384632588,35.2000024065375,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11137,15 +11477,10 @@ FROM
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage Month To NDS\YEAR_NDS">
+    design-time-name="Package\Stage Month To NDS\Stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -11163,8 +11498,36 @@ FROM
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage Month To NDS\Stage">
+    design-time-name="Package\Stage Month To NDS\YEAR_NDS">
     <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage Month To NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Month_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -11385,7 +11748,7 @@ FROM
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-139.389720052083,33.5763293310463,111.6127734375,11.609375"
+              BoundingBox="-139.389720052084,33.5763293310463,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11491,31 +11854,31 @@ FROM
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\Stage State To NDS\Lookup"
           TopLeft="193.333322770066,412.866664491031" />
         <NodeLayout
-          Size="182,42"
+          Size="182.4,41.6"
           Id="Package\Stage State To NDS\Add SourceID Column"
           TopLeft="150.064100294859,213.34358730256" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Stage State To NDS\OLE DB Destination"
-          TopLeft="58.3333325303263,540.661531640795" />
+          TopLeft="38.3333312388924,547.533330265747" />
         <NodeLayout
-          Size="106,42"
+          Size="105.6,41.6"
           Id="Package\Stage State To NDS\Stage"
           TopLeft="183.461535727749,32.4615379778238" />
         <NodeLayout
-          Size="167,42"
+          Size="167.2,41.6"
           Id="Package\Stage State To NDS\OLE DB Command"
           TopLeft="341.025635016779,542.615377488228" />
         <NodeLayout
-          Size="156,42"
+          Size="156,41.6"
           Id="Package\Stage State To NDS\Data Conversion"
           TopLeft="169.99999071161,119.266665937437" />
         <NodeLayout
-          Size="182,42"
+          Size="182.4,41.6"
           Id="Package\Stage State To NDS\Add Created, Updated"
           TopLeft="146.987177263786,322.574354905664" />
         <EdgeLayout
@@ -11576,37 +11939,37 @@ FROM
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage State To NDS.Paths[Lookup No Match Output]"
-          TopLeft="232.2666561034,454.466664491031">
+          TopLeft="232.266656103399,454.466664491031">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-88.3333235730733,86.1948671497641"
+              EndConnector="-108.333324864507,93.0666657747162"
               Start="0,0"
-              End="-88.3333235730733,78.6948671497641">
+              End="-108.333324864507,85.5666657747162">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.2012604303932" />
+                    End="0,34.0076453233806" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.2012604303932"
-                    Point2="0,35.2012604303932"
-                    Point3="-4,35.2012604303932" />
+                    Point1="0,34.0076453233806"
+                    Point2="0,38.0076453233806"
+                    Point3="-4,38.0076453233806" />
                   <mssgle:LineSegment
-                    End="-84.3333235730733,35.2012604303932" />
+                    End="-104.333324864507,38.0076453233806" />
                   <mssgle:CubicBezierSegment
-                    Point1="-84.3333235730733,35.2012604303932"
-                    Point2="-88.3333235730733,35.2012604303932"
-                    Point3="-88.3333235730733,39.2012604303932" />
+                    Point1="-104.333324864507,38.0076453233806"
+                    Point2="-108.333324864507,38.0076453233806"
+                    Point3="-108.333324864507,42.0076453233806" />
                   <mssgle:LineSegment
-                    End="-88.3333235730733,78.6948671497641" />
+                    End="-108.333324864507,85.5666657747162" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-99.9730485052866,40.2012604303932,111.6127734375,11.609375"
+              BoundingBox="-109.973049151003,43.0076453233806,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11642,7 +12005,7 @@ FROM
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="30.5214360712731,40.9991946785756,96.3827734375,11.609375"
+              BoundingBox="30.521436071273,40.9991946785756,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11711,17 +12074,17 @@ FROM
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
+          type="q3:string">[dbo].[State_NDS]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11860,7 +12223,7 @@ FROM
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="48.2752799479166,37.412602745809,96.3827734375,11.609375"
+              BoundingBox="48.2752799479165,37.412602745809,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11912,77 +12275,10 @@ FROM
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage Month To NDS\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Month_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Stage Day To NDS\Stage">
+    design-time-name="Package\Stage AQI To NDS\Day Stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Stage Day To NDS\Month NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Stage Day To NDS\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Day_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Stage Day To NDS\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
