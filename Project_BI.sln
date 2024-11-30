@@ -5,6 +5,16 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Project_BI", "Project_BI\Project_BI.dtproj", "{E92EAA94-5694-4A14-80AA-9ACAA257689C}"
 EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "OLAP", "OLAP\OLAP.dwproj", "{734691C1-C146-4EF5-B870-BDECC7720CB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{9EF0A658-FEAF-4549-A7A3-275E475D1101}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\sql_script\dds.sql = ..\..\sql_script\dds.sql
+		..\..\sql_script\metadata.sql = ..\..\sql_script\metadata.sql
+		..\..\sql_script\nds.sql = ..\..\sql_script\nds.sql
+		..\..\sql_script\stage.sql = ..\..\sql_script\stage.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
@@ -12,6 +22,9 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E92EAA94-5694-4A14-80AA-9ACAA257689C}.Development|Default.ActiveCfg = Development
 		{E92EAA94-5694-4A14-80AA-9ACAA257689C}.Development|Default.Build.0 = Development
+		{734691C1-C146-4EF5-B870-BDECC7720CB8}.Development|Default.ActiveCfg = Development
+		{734691C1-C146-4EF5-B870-BDECC7720CB8}.Development|Default.Build.0 = Development
+		{734691C1-C146-4EF5-B870-BDECC7720CB8}.Development|Default.Deploy.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
