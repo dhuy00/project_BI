@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="NDSToDDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="84"
-  DTS:VersionGUID="{33D24E47-3E04-4FC2-BCF3-8862E4226169}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{8FEB9CC5-74FC-4AF5-90BF-0BCCC192CFEB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -10750,6 +10750,40 @@ WHERE AQI_SK = ?</property>
           Size="171.2,41.6"
           Id="Package\Sequence Container 7\Fact_AirQualityData"
           TopLeft="77.3592513317495,256.91851543017" />
+        <NodeLayout
+          Size="251.2,41.6"
+          Id="Package\Sequence Container 7\GET LSET, CET Fact_AirQualityData"
+          TopLeft="39.3962904429914,143.0666639868" />
+        <NodeLayout
+          Size="231.2,41.6"
+          Id="Package\Sequence Container 7\Udpate CET Fact_AirQualityData"
+          TopLeft="44.6555400900824,46.2518486831502" />
+        <NodeLayout
+          Size="263.2,41.6"
+          Id="Package\Sequence Container 7\Update LSET, CET Fact_AirQualityData"
+          TopLeft="36.6185128169844,355.43703380137" />
+        <EdgeLayout
+          Id="Package\Sequence Container 7.PrecedenceConstraints[Constraint]"
+          TopLeft="162.625915266537,87.8518486831501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.2148153036464"
+              Start="0,0"
+              End="0,47.7148153036464">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.7148153036464" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container 7.PrecedenceConstraints[Constraint 1]"
           TopLeft="163.97777088737,184.6666639868">
@@ -10794,40 +10828,6 @@ WHERE AQI_SK = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="251.2,41.6"
-          Id="Package\Sequence Container 7\GET LSET, CET Fact_AirQualityData"
-          TopLeft="39.3962904429914,143.0666639868" />
-        <EdgeLayout
-          Id="Package\Sequence Container 7.PrecedenceConstraints[Constraint]"
-          TopLeft="162.625915266537,87.8518486831501">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55.2148153036464"
-              Start="0,0"
-              End="0,47.7148153036464">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.7148153036464" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="231.2,41.6"
-          Id="Package\Sequence Container 7\Udpate CET Fact_AirQualityData"
-          TopLeft="44.6555400900824,46.2518486831502" />
-        <NodeLayout
-          Size="263.2,41.6"
-          Id="Package\Sequence Container 7\Update LSET, CET Fact_AirQualityData"
-          TopLeft="36.6185128169844,355.43703380137" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -11005,523 +11005,14 @@ WHERE AQI_SK = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Sequence Container 7\Fact_AirQualityData">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\OLE DB Command"
-          TopLeft="873.428561104196,744.999992985811" />
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Sort 3"
-          TopLeft="587.857134097389,365.714280264718" />
-        <NodeLayout
-          Size="121.6,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\SourceID"
-          TopLeft="407.857136779598,656.142851299473" />
-        <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Dim_Category"
-          TopLeft="569.285705802696,281.428567234959" />
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Sort 2"
-          TopLeft="263.571424643908,372.857137301139" />
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Merge Join 1"
-          TopLeft="396.428565521325,485.714281754834" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\OLE DB Destination"
-          TopLeft="865.999987759761,548.999997413584" />
-        <NodeLayout
-          Size="120.8,48"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Dim_Day"
-          TopLeft="407.857136779598,49.2857135512999" />
-        <NodeLayout
-          Size="173.6,44.8"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\AirQualityData_NDS"
-          TopLeft="101.999998480082,41.571427951966" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Lookup"
-          TopLeft="667.142847201654,655.999994124685" />
-        <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Add Created, LastUpdated"
-          TopLeft="362.85713745015,561.428567532982" />
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Lookup Match Output]"
-          TopLeft="723.542847201654,697.599994124685">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="233.485713902542,47.3999988611257"
-              Start="0,0"
-              End="233.485713902542,39.8999988611257">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.6999994305629" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.6999994305629"
-                    Point2="0,23.6999994305629"
-                    Point3="4,23.6999994305629" />
-                  <mssgle:LineSegment
-                    End="229.485713902542,23.6999994305629" />
-                  <mssgle:CubicBezierSegment
-                    Point1="229.485713902542,23.6999994305629"
-                    Point2="233.485713902542,23.6999994305629"
-                    Point3="233.485713902542,27.6999994305629" />
-                  <mssgle:LineSegment
-                    End="233.485713902542,39.8999988611257" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="68.551470232521,28.6999994305629,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Derived Column Output1]"
-          TopLeft="529.457136779598,676.871422712079">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="137.685710422056,0"
-              Start="0,0"
-              End="130.185710422056,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="130.185710422056,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Derived Column Output]"
-          TopLeft="466.157137114874,603.028567532982">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.1142837664913"
-              Start="0,0"
-              End="0,45.6142837664913">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.6142837664913" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Sort Output1]"
-          TopLeft="641.057134097389,407.314280264718">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-153.695235242731,78.400001490116"
-              Start="0,0"
-              End="-153.695235242731,70.900001490116">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.5024008838517" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,42.5024008838517"
-                    Point2="0,46.5024008838517"
-                    Point3="-4,46.5024008838517" />
-                  <mssgle:LineSegment
-                    End="-149.695235242731,46.5024008838517" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-149.695235242731,46.5024008838517"
-                    Point2="-153.695235242731,46.5024008838517"
-                    Point3="-153.695235242731,50.5024008838517" />
-                  <mssgle:LineSegment
-                    End="-153.695235242731,70.900001490116" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Sort Output]"
-          TopLeft="316.771424643908,414.457137301139">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127.123807544084,71.2571444536957"
-              Start="0,0"
-              End="127.123807544084,63.7571444536957">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.2656662531064" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.2656662531064"
-                    Point2="0,42.2656662531064"
-                    Point3="4,42.2656662531064" />
-                  <mssgle:LineSegment
-                    End="123.123807544084,42.2656662531064" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.123807544084,42.2656662531064"
-                    Point2="127.123807544084,42.2656662531064"
-                    Point3="127.123807544084,46.2656662531064" />
-                  <mssgle:LineSegment
-                    End="127.123807544084,63.7571444536957" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[OLE DB Source Output]"
-          TopLeft="641.371419950043,323.028567234959">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.6857130297591"
-              Start="0,0"
-              End="0,35.1857130297591">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.1857130297591" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Lookup No Match Output]"
-          TopLeft="723.542847201654,655.999994124685">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="228.057140558107,-65.3999967111008"
-              Start="0,0"
-              End="228.057140558107,-57.8999967111008">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-28.6999983555504" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-28.6999983555504"
-                    Point2="0,-32.6999983555504"
-                    Point3="4,-32.6999983555504" />
-                  <mssgle:LineSegment
-                    End="224.057140558107,-32.6999983555504" />
-                  <mssgle:CubicBezierSegment
-                    Point1="224.057140558107,-32.6999983555504"
-                    Point2="228.057140558107,-32.6999983555504"
-                    Point3="228.057140558107,-36.6999983555504" />
-                  <mssgle:LineSegment
-                    End="228.057140558107,-57.8999967111008" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="58.2221835603035,-27.6999983555504,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Merge Join Output]"
-          TopLeft="464.642851485738,527.314281754834">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.1142857781477"
-              Start="0,0"
-              End="0,26.6142857781477">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.6142857781477" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Sort"
-          TopLeft="139.966661248439,161.199999023676" />
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Sort 1"
-          TopLeft="407.466646632884,151.666665756636" />
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[OLE DB Source Output1]"
-          TopLeft="188.783329864261,86.371427951966">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,74.8285710717099"
-              Start="0,0"
-              End="0,67.3285710717099">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,67.3285710717099" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[OLE DB Source Output2]"
-          TopLeft="464.461891706241,97.2857135512999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.3809522053363"
-              Start="0,0"
-              End="0,46.8809522053363">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.8809522053363" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Sequence Container 7\Fact_AirQualityData\Merge Join"
-          TopLeft="238.299989209076,254.799998372793" />
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Sort Output2]"
-          TopLeft="188.766661248439,202.799999023676">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="114.333327960637,51.9999993491173"
-              Start="0,0"
-              End="114.333327960637,44.4999993491173">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.9999996745587" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.9999996745587"
-                    Point2="0,25.9999996745587"
-                    Point3="4,25.9999996745587" />
-                  <mssgle:LineSegment
-                    End="110.333327960637,25.9999996745587" />
-                  <mssgle:CubicBezierSegment
-                    Point1="110.333327960637,25.9999996745587"
-                    Point2="114.333327960637,25.9999996745587"
-                    Point3="114.333327960637,29.9999996745587" />
-                  <mssgle:LineSegment
-                    End="114.333327960637,44.4999993491173" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Sort Output3]"
-          TopLeft="460.666646632884,193.266665756636">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-137.299990757141,61.533332616157"
-              Start="0,0"
-              End="-137.299990757141,54.033332616157">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.4697556725028" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.4697556725028"
-                    Point2="0,36.4697556725028"
-                    Point3="-4,36.4697556725028" />
-                  <mssgle:LineSegment
-                    End="-133.299990757141,36.4697556725028" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-133.299990757141,36.4697556725028"
-                    Point2="-137.299990757141,36.4697556725028"
-                    Point3="-137.299990757141,40.4697556725028" />
-                  <mssgle:LineSegment
-                    End="-137.299990757141,54.033332616157" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Merge Join Output1]"
-          TopLeft="303.099989209076,296.399998372793">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13.6714354348317,76.4571389283458"
-              Start="0,0"
-              End="13.6714354348317,68.9571389283458">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.2285694641729" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.2285694641729"
-                    Point2="0,38.2285694641729"
-                    Point3="4,38.2285694641729" />
-                  <mssgle:LineSegment
-                    End="9.67143543483172,38.2285694641729" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.67143543483172,38.2285694641729"
-                    Point2="13.6714354348317,38.2285694641729"
-                    Point3="13.6714354348317,42.2285694641729" />
-                  <mssgle:LineSegment
-                    End="13.6714354348317,68.9571389283458" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\Dim_Category">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\Dim_Day">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\AirQualityData_NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Fact_AirQualityData]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Sequence Container\State_NDS To Dim_State">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Sequence Container\State_NDS To Dim_State\OLE DB Command"
+          TopLeft="466.266208290571,390.213850100354" />
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\Sequence Container\State_NDS To Dim_State\Lookup"
@@ -11531,17 +11022,49 @@ WHERE AQI_SK = ?</property>
           Id="Package\Sequence Container\State_NDS To Dim_State\OLE DB Destination"
           TopLeft="107.738089351545,370.06666409327" />
         <NodeLayout
-          Size="130.4,41.6"
-          Id="Package\Sequence Container\State_NDS To Dim_State\State_NDS"
-          TopLeft="349.999980876844,25.9999998191991" />
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Sequence Container\State_NDS To Dim_State\OLE DB Command"
-          TopLeft="466.266208290571,390.213850100354" />
-        <NodeLayout
           Size="291.2,41.6"
           Id="Package\Sequence Container\State_NDS To Dim_State\Add Created, LastUpadated, SourceID, Status"
           TopLeft="308.095221261658,142.999999005596" />
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Sequence Container\State_NDS To Dim_State\State_NDS"
+          TopLeft="349.999980876844,25.9999998191991" />
+        <EdgeLayout
+          Id="Package\Sequence Container\State_NDS To Dim_State.Paths[Lookup No Match Output]"
+          TopLeft="396.433313800395,294.666664906872">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-203.09522444885,75.3999991863976"
+              Start="0,0"
+              End="-203.09522444885,67.8999991863976">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7927269404589" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.7927269404589"
+                    Point2="0,30.7927269404589"
+                    Point3="-4,30.7927269404589" />
+                  <mssgle:LineSegment
+                    End="-199.09522444885,30.7927269404589" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-199.09522444885,30.7927269404589"
+                    Point2="-203.09522444885,30.7927269404589"
+                    Point3="-203.09522444885,34.7927269404589" />
+                  <mssgle:LineSegment
+                    End="-203.09522444885,67.8999991863976" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-157.353998943175,35.7927269404589,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\State_NDS To Dim_State.Paths[Lookup Match Output]"
           TopLeft="431.366647133729,294.666664906872">
@@ -11646,45 +11169,32 @@ WHERE AQI_SK = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\State_NDS To Dim_State.Paths[Lookup No Match Output]"
-          TopLeft="396.433313800395,294.666664906872">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-203.09522444885,75.3999991863976"
-              Start="0,0"
-              End="-203.09522444885,67.8999991863976">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.7927269404589" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.7927269404589"
-                    Point2="0,30.7927269404589"
-                    Point3="-4,30.7927269404589" />
-                  <mssgle:LineSegment
-                    End="-199.09522444885,30.7927269404589" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-199.09522444885,30.7927269404589"
-                    Point2="-203.09522444885,30.7927269404589"
-                    Point3="-203.09522444885,34.7927269404589" />
-                  <mssgle:LineSegment
-                    End="-203.09522444885,67.8999991863976" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-157.353998943175,35.7927269404589,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\State_NDS To Dim_State\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_State]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\State_NDS To Dim_State\State_NDS">
     <Properties>
@@ -11711,42 +11221,19 @@ WHERE AQI_SK = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\State_NDS To Dim_State\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_State]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Sequence Container 1\County_NDS To Dim_County">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="236.8,41.6"
-          Id="Package\Sequence Container 1\County_NDS To Dim_County\Derived Column, SourceID, Status"
-          TopLeft="283.499987762007,178.333332499862" />
-        <NodeLayout
           Size="112.8,41.6"
           Id="Package\Sequence Container 1\County_NDS To Dim_County\Lookup"
           TopLeft="309.833319709534,283.73333180401" />
+        <NodeLayout
+          Size="236.8,41.6"
+          Id="Package\Sequence Container 1\County_NDS To Dim_County\Derived Column, SourceID, Status"
+          TopLeft="274.499987896117,168.333332648874" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Sequence Container 1\County_NDS To Dim_County\OLE DB Destination"
@@ -11754,37 +11241,25 @@ WHERE AQI_SK = ?</property>
         <NodeLayout
           Size="147.2,41.6"
           Id="Package\Sequence Container 1\County_NDS To Dim_County\Counties_NDS"
-          TopLeft="284.999987044269,54.6666667461395" />
+          TopLeft="320.999986507827,59.6666666716337" />
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Sequence Container 1\County_NDS To Dim_County\OLE DB Command"
           TopLeft="442.619025890554,411.114284077628" />
         <EdgeLayout
           Id="Package\Sequence Container 1\County_NDS To Dim_County.Paths[OLE DB Source Output]"
-          TopLeft="358.599987044269,96.2666667461395">
+          TopLeft="393.749987201972,101.266666671634">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="43.3000007177379,82.0666657537225"
+              EndConnector="0,67.0666659772399"
               Start="0,0"
-              End="43.3000007177379,74.5666657537225">
+              End="0,59.5666659772399">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.0333328768613" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,37.0333328768613"
-                    Point2="0,41.0333328768613"
-                    Point3="4,41.0333328768613" />
-                  <mssgle:LineSegment
-                    End="39.3000007177379,41.0333328768613" />
-                  <mssgle:CubicBezierSegment
-                    Point1="39.3000007177379,41.0333328768613"
-                    Point2="43.3000007177379,41.0333328768613"
-                    Point3="43.3000007177379,45.0333328768613" />
-                  <mssgle:LineSegment
-                    End="43.3000007177379,74.5666657537225" />
+                    End="0,59.5666659772399" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11867,30 +11342,30 @@ WHERE AQI_SK = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container 1\County_NDS To Dim_County.Paths[Derived Column Output]"
-          TopLeft="401.899987762007,219.933332499862">
+          TopLeft="392.899987896117,209.933332648874">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-35.666668052473,63.799999304148"
+              EndConnector="-26.6666681865834,73.7999991551364"
               Start="0,0"
-              End="-35.666668052473,56.299999304148">
+              End="-26.6666681865834,66.2999991551364">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.899999652074" />
+                    End="0,32.8999995775682" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.899999652074"
-                    Point2="0,31.899999652074"
-                    Point3="-4,31.899999652074" />
+                    Point1="0,32.8999995775682"
+                    Point2="0,36.8999995775682"
+                    Point3="-4,36.8999995775682" />
                   <mssgle:LineSegment
-                    End="-31.666668052473,31.899999652074" />
+                    End="-22.6666681865834,36.8999995775682" />
                   <mssgle:CubicBezierSegment
-                    Point1="-31.666668052473,31.899999652074"
-                    Point2="-35.666668052473,31.899999652074"
-                    Point3="-35.666668052473,35.899999652074" />
+                    Point1="-22.6666681865834,36.8999995775682"
+                    Point2="-26.6666681865834,36.8999995775682"
+                    Point3="-26.6666681865834,40.8999995775682" />
                   <mssgle:LineSegment
-                    End="-35.666668052473,56.299999304148" />
+                    End="-26.6666681865834,66.2999991551364" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11952,25 +11427,25 @@ WHERE AQI_SK = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\Sequence Container 2\Dim_Category\AirQualityData_NDS"
-          TopLeft="173.452378367739,9.11904748316319" />
-        <NodeLayout
           Size="167.2,41.6"
           Id="Package\Sequence Container 2\Dim_Category\OLE DB Command"
           TopLeft="338.142852104136,335.238090242659" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Sequence Container 2\Dim_Category\OLE DB Destination"
-          TopLeft="38.1428565744843,350.476185253688" />
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\Sequence Container 2\Dim_Category\Lookup"
           TopLeft="197.333330392838,217.333330094814" />
         <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Sequence Container 2\Dim_Category\AirQualityData_NDS"
+          TopLeft="173.452378367739,9.11904748316319" />
+        <NodeLayout
           Size="201.6,41.6"
           Id="Package\Sequence Container 2\Dim_Category\Add Created, LastUpdated"
           TopLeft="156.142854816147,120.714283915503" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Sequence Container 2\Dim_Category\OLE DB Destination"
+          TopLeft="38.1428565744843,350.476185253688" />
         <EdgeLayout
           Id="Package\Sequence Container 2\Dim_Category.Paths[OLE DB Source Output]"
           TopLeft="258.597616591943,50.7190474831632">
@@ -12091,12 +11566,20 @@ WHERE AQI_SK = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 2\Dim_Category\AirQualityData_NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Sequence Container 2\Dim_Category\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12123,14 +11606,6 @@ WHERE AQI_SK = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 2\Dim_Category\AirQualityData_NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -12309,7 +11784,7 @@ WHERE AQI_SK = ?</property>
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Sequence Container 4\Quarter_NDS To Dim_Quarter\Merge Join"
-          TopLeft="279.999995827675,306.923072349567" />
+          TopLeft="279.285710124033,306.923072349567" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Sequence Container 4\Quarter_NDS To Dim_Quarter\OLE DB Destination"
@@ -12344,26 +11819,26 @@ WHERE AQI_SK = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-125.056407918074,95.3230748827642"
+              EndConnector="-125.770693621715,95.323074882764"
               Start="0,0"
-              End="-125.056407918074,87.8230748827642">
+              End="-125.770693621715,87.823074882764">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4963590158822" />
+                    End="0,52.4963590158821" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,52.4963590158822"
-                    Point2="0,56.4963590158822"
-                    Point3="-4,56.4963590158822" />
+                    Point1="0,52.4963590158821"
+                    Point2="0,56.4963590158821"
+                    Point3="-4,56.4963590158821" />
                   <mssgle:LineSegment
-                    End="-121.056407918074,56.4963590158822" />
+                    End="-121.770693621715,56.4963590158821" />
                   <mssgle:CubicBezierSegment
-                    Point1="-121.056407918074,56.4963590158822"
-                    Point2="-125.056407918074,56.4963590158822"
-                    Point3="-125.056407918074,60.4963590158822" />
+                    Point1="-121.770693621715,56.4963590158821"
+                    Point2="-125.770693621715,56.4963590158821"
+                    Point3="-125.770693621715,60.4963590158821" />
                   <mssgle:LineSegment
-                    End="-125.056407918074,87.8230748827642" />
+                    End="-125.770693621715,87.823074882764" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12378,26 +11853,26 @@ WHERE AQI_SK = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="120.348716091804,96.861536398301"
+              EndConnector="119.634430388162,96.861536398301"
               Start="0,0"
-              End="120.348716091804,89.361536398301">
+              End="119.634430388162,89.361536398301">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.4081788897247" />
+                    End="0,53.4081788897248" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,53.4081788897247"
-                    Point2="0,57.4081788897247"
-                    Point3="4,57.4081788897247" />
+                    Point1="0,53.4081788897248"
+                    Point2="0,57.4081788897248"
+                    Point3="4,57.4081788897248" />
                   <mssgle:LineSegment
-                    End="116.348716091804,57.4081788897247" />
+                    End="115.634430388162,57.4081788897248" />
                   <mssgle:CubicBezierSegment
-                    Point1="116.348716091804,57.4081788897247"
-                    Point2="120.348716091804,57.4081788897247"
-                    Point3="120.348716091804,61.4081788897247" />
+                    Point1="115.634430388162,57.4081788897248"
+                    Point2="119.634430388162,57.4081788897248"
+                    Point3="119.634430388162,61.4081788897248" />
                   <mssgle:LineSegment
-                    End="120.348716091804,89.361536398301" />
+                    End="119.634430388162,89.361536398301" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12452,18 +11927,18 @@ WHERE AQI_SK = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container 4\Quarter_NDS To Dim_Quarter.Paths[Merge Join Output]"
-          TopLeft="340.984611206559,348.523072349567">
+          TopLeft="340.627468354738,348.523072349567">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69.9384598764087"
+              EndConnector="0,69.938459876409"
               Start="0,0"
-              End="0,62.4384598764087">
+              End="0,62.438459876409">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.4384598764087" />
+                    End="0,62.438459876409" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12566,7 +12041,7 @@ WHERE AQI_SK = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12576,7 +12051,7 @@ WHERE AQI_SK = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -13159,7 +12634,7 @@ WHERE AQI_SK = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -13204,6 +12679,519 @@ WHERE AQI_SK = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container 6\Day_NDS To Dim_Day\AirQualityData_NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container 7\Fact_AirQualityData">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Lookup"
+          TopLeft="667.142847201654,655.999994124685" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\SourceID"
+          TopLeft="407.857136779598,656.142851299473" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Sort 2"
+          TopLeft="263.571424643908,372.857137301139" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Merge Join"
+          TopLeft="238.299989209076,254.799998372793" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Merge Join 1"
+          TopLeft="396.428565521325,485.714281754834" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Sort 3"
+          TopLeft="587.857134097389,365.714280264718" />
+        <NodeLayout
+          Size="173.6,44.8"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\AirQualityData_NDS"
+          TopLeft="101.999998480082,41.571427951966" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Dim_Category"
+          TopLeft="569.285705802696,281.428567234959" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\OLE DB Command"
+          TopLeft="873.428561104196,744.999992985811" />
+        <NodeLayout
+          Size="120.8,48"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Dim_Day"
+          TopLeft="407.857136779598,49.2857135512999" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Sort 1"
+          TopLeft="407.466646632884,151.666665756636" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\OLE DB Destination"
+          TopLeft="865.999987759761,548.999997413584" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Sort"
+          TopLeft="139.966661248439,161.199999023676" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Sequence Container 7\Fact_AirQualityData\Add Created, LastUpdated"
+          TopLeft="362.85713745015,561.428567532982" />
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Lookup Match Output]"
+          TopLeft="723.542847201654,697.599994124685">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="233.485713902542,47.3999988611257"
+              Start="0,0"
+              End="233.485713902542,39.8999988611257">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.6999994305629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.6999994305629"
+                    Point2="0,23.6999994305629"
+                    Point3="4,23.6999994305629" />
+                  <mssgle:LineSegment
+                    End="229.485713902542,23.6999994305629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="229.485713902542,23.6999994305629"
+                    Point2="233.485713902542,23.6999994305629"
+                    Point3="233.485713902542,27.6999994305629" />
+                  <mssgle:LineSegment
+                    End="233.485713902542,39.8999988611257" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="68.551470232521,28.6999994305629,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Derived Column Output1]"
+          TopLeft="529.457136779598,676.871422712079">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.685710422056,0"
+              Start="0,0"
+              End="130.185710422056,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="130.185710422056,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Derived Column Output]"
+          TopLeft="466.157137114874,603.028567532982">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.1142837664913"
+              Start="0,0"
+              End="0,45.6142837664913">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.6142837664913" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Sort Output3]"
+          TopLeft="460.666646632884,193.266665756636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-137.299990757141,61.533332616157"
+              Start="0,0"
+              End="-137.299990757141,54.033332616157">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4697556725028" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.4697556725028"
+                    Point2="0,36.4697556725028"
+                    Point3="-4,36.4697556725028" />
+                  <mssgle:LineSegment
+                    End="-133.299990757141,36.4697556725028" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-133.299990757141,36.4697556725028"
+                    Point2="-137.299990757141,36.4697556725028"
+                    Point3="-137.299990757141,40.4697556725028" />
+                  <mssgle:LineSegment
+                    End="-137.299990757141,54.033332616157" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Sort Output2]"
+          TopLeft="188.766661248439,202.799999023676">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.333327960637,51.9999993491173"
+              Start="0,0"
+              End="114.333327960637,44.4999993491173">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9999996745587" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9999996745587"
+                    Point2="0,25.9999996745587"
+                    Point3="4,25.9999996745587" />
+                  <mssgle:LineSegment
+                    End="110.333327960637,25.9999996745587" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.333327960637,25.9999996745587"
+                    Point2="114.333327960637,25.9999996745587"
+                    Point3="114.333327960637,29.9999996745587" />
+                  <mssgle:LineSegment
+                    End="114.333327960637,44.4999993491173" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Sort Output1]"
+          TopLeft="641.057134097389,407.314280264718">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.695235242731,78.400001490116"
+              Start="0,0"
+              End="-153.695235242731,70.900001490116">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5024008838517" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.5024008838517"
+                    Point2="0,46.5024008838517"
+                    Point3="-4,46.5024008838517" />
+                  <mssgle:LineSegment
+                    End="-149.695235242731,46.5024008838517" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.695235242731,46.5024008838517"
+                    Point2="-153.695235242731,46.5024008838517"
+                    Point3="-153.695235242731,50.5024008838517" />
+                  <mssgle:LineSegment
+                    End="-153.695235242731,70.900001490116" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Sort Output]"
+          TopLeft="316.771424643908,414.457137301139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.123807544084,71.2571444536957"
+              Start="0,0"
+              End="127.123807544084,63.7571444536957">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.2656662531064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.2656662531064"
+                    Point2="0,42.2656662531064"
+                    Point3="4,42.2656662531064" />
+                  <mssgle:LineSegment
+                    End="123.123807544084,42.2656662531064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.123807544084,42.2656662531064"
+                    Point2="127.123807544084,42.2656662531064"
+                    Point3="127.123807544084,46.2656662531064" />
+                  <mssgle:LineSegment
+                    End="127.123807544084,63.7571444536957" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[OLE DB Source Output2]"
+          TopLeft="464.461891706241,97.2857135512999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.3809522053363"
+              Start="0,0"
+              End="0,46.8809522053363">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.8809522053363" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[OLE DB Source Output1]"
+          TopLeft="188.783329864261,86.371427951966">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74.8285710717099"
+              Start="0,0"
+              End="0,67.3285710717099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.3285710717099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[OLE DB Source Output]"
+          TopLeft="641.371419950043,323.028567234959">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.6857130297591"
+              Start="0,0"
+              End="0,35.1857130297591">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.1857130297591" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Merge Join Output1]"
+          TopLeft="303.099989209076,296.399998372793">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.6714354348317,76.4571389283458"
+              Start="0,0"
+              End="13.6714354348317,68.9571389283458">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2285694641729" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.2285694641729"
+                    Point2="0,38.2285694641729"
+                    Point3="4,38.2285694641729" />
+                  <mssgle:LineSegment
+                    End="9.67143543483172,38.2285694641729" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.67143543483172,38.2285694641729"
+                    Point2="13.6714354348317,38.2285694641729"
+                    Point3="13.6714354348317,42.2285694641729" />
+                  <mssgle:LineSegment
+                    End="13.6714354348317,68.9571389283458" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Merge Join Output]"
+          TopLeft="464.642851485738,527.314281754834">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.1142857781477"
+              Start="0,0"
+              End="0,26.6142857781477">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6142857781477" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 7\Fact_AirQualityData.Paths[Lookup No Match Output]"
+          TopLeft="723.542847201654,655.999994124685">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228.057140558107,-65.3999967111008"
+              Start="0,0"
+              End="228.057140558107,-57.8999967111008">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-28.6999983555504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-28.6999983555504"
+                    Point2="0,-32.6999983555504"
+                    Point3="4,-32.6999983555504" />
+                  <mssgle:LineSegment
+                    End="224.057140558107,-32.6999983555504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224.057140558107,-32.6999983555504"
+                    Point2="228.057140558107,-32.6999983555504"
+                    Point3="228.057140558107,-36.6999983555504" />
+                  <mssgle:LineSegment
+                    End="228.057140558107,-57.8999967111008" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="58.2221835603035,-27.6999983555504,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Fact_AirQualityData]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\AirQualityData_NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\Dim_Category">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\Dim_Day">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 7\Fact_AirQualityData\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

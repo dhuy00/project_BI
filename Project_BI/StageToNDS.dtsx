@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="81"
-  DTS:VersionGUID="{54E573F2-A26C-4E8E-BA65-335CEA372551}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{CC79E379-4D1E-4DFE-BFA1-F6F87F222A93}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -67,6 +67,1029 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8EB4819E-B58F-4B7B-824A-9C361E9C5CC3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SELECT CET, LSET State"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5D9698A1-E781-4C51-90A8-5B328BE0B7AF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT CET, LSET State"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:SqlStatementSource="SELECT CET, LSET&#xA;FROM DATA_FLOW_NDS&#xA;WHERE TABLE_NAME = 'State_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Stage State To NDS"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{44F6F42B-192D-47D4-AEDD-A49C832D44AC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Stage State To NDS"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Stage State To NDS\Add Created, Updated"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add Created, Updated"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Created]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Created]"
+                          name="Created"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Updated]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Updated]"
+                          name="Updated"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Stage State To NDS\Add SourceID Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add SourceID Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output].Columns[SourceID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output].Columns[SourceID]"
+                          name="SourceID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">1</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Stage State To NDS\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input].Columns[StateCode]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="StateCode"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]"
+                          name="Copy of StateCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Stage State To NDS\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[State_NDS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[State_NDS]) [refTable]
+where [refTable].[State_code] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="State_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State_code" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StateName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State_id" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Created" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastUpdated" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Stage State To NDS\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Stage State To NDS\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Lookup.Inputs[Lookup Input].Columns[Copy of StateCode]"
+                          cachedDataType="i4"
+                          cachedName="Copy of StateCode"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">State_code</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Match Output].Columns[State_SK]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Match Output].Columns[State_SK]"
+                          name="State_SK"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">State_SK</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Stage State To NDS\OLE DB Command"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE State_NDS
+SET 
+StateName = ?,
+State_id = ?,
+State_code = ?
+WHERE 
+State_SK = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[State_id]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="State_id"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[StateCode]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="StateCode"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[State_SK]"
+                          cachedDataType="i4"
+                          cachedName="State_SK"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Match Output].Columns[State_SK]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[State_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="State_name"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="100"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="5"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[State_NDS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State_id]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="State_id"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_id]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                          cachedDataType="i4"
+                          cachedName="SourceID"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output].Columns[SourceID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Created]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Created"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Created]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of StateCode]"
+                          cachedDataType="i4"
+                          cachedName="Copy of StateCode"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_code]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Updated]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Updated"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdated]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Updated]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="State_name"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_SK]"
+                          dataType="i4"
+                          name="State_SK" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_code]"
+                          dataType="i4"
+                          name="State_code" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                          dataType="wstr"
+                          length="100"
+                          name="StateName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_id]"
+                          dataType="wstr"
+                          length="5"
+                          name="State_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created]"
+                          dataType="dbTimeStamp"
+                          name="Created" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdated]"
+                          dataType="dbTimeStamp"
+                          name="LastUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                          dataType="i4"
+                          name="SourceID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          dataType="i4"
+                          name="Status" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Stage State To NDS\Stage"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Stage"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+    CAST(LEFT(County_fips, 2) AS INT) AS StateCode,
+    State_name,  
+    State_id
+FROM 
+    Counties_Stage C;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Stage State To NDS\Stage.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.STAGE]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                          length="10"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]"
+                          name="StateCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_id]"
+                          length="5"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]"
+                          name="State_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_name]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]"
+                          name="State_name"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                          dataType="i4"
+                          name="StateCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_id]"
+                          dataType="wstr"
+                          length="5"
+                          name="State_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="State_name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                          name="StateCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_name]"
+                          name="State_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_id]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_id]"
+                          name="State_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Stage State To NDS.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Inputs[Derived Column Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container\Stage State To NDS.Paths[Derived Column Output]"
+                  endId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\Stage State To NDS.Paths[Derived Column Output1]"
+                  endId="Package\Sequence Container\Stage State To NDS\Lookup.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\Stage State To NDS.Paths[Lookup Match Output]"
+                  endId="Package\Sequence Container\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Stage State To NDS.Paths[Lookup No Match Output]"
+                  endId="Package\Sequence Container\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Sequence Container\Stage State To NDS\Lookup.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Stage State To NDS.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Stage State To NDS\Stage.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\UPDATE CET State"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{666A3C61-CCF8-49EA-A137-69AB36A9DB18}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="UPDATE CET State"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET CET = GETDATE()&#xA;WHERE TABLE_NAME = 'State_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\UPDATE LSET, STATUS, ROW_COUNT State"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4C3B050D-C45B-45CC-AB32-D10CF40E9898}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="UPDATE LSET, STATUS, ROW_COUNT State"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = CET,&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME='State_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2A14CA2-C1B8-46A1-922F-F34BA8C0FF9A}"
+          DTS:From="Package\Sequence Container\UPDATE CET State"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\SELECT CET, LSET State" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{7E4E7C3B-C41C-49A5-9DD7-443BAD88DBEF}"
+          DTS:From="Package\Sequence Container\SELECT CET, LSET State"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Stage State To NDS" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{1A9DAC16-A619-43C1-8286-47762AE440F5}"
+          DTS:From="Package\Sequence Container\Stage State To NDS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\UPDATE LSET, STATUS, ROW_COUNT State" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Stage AQI To NDS"
       DTS:CreationName="Microsoft.Pipeline"
@@ -4137,962 +5160,7 @@ FROM
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Stage State To NDS"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{44F6F42B-192D-47D4-AEDD-A49C832D44AC}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Stage State To NDS"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Stage State To NDS\Add Created, Updated"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Add Created, Updated"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Stage State To NDS\Add Created, Updated.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Stage State To NDS\Add Created, Updated.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Created]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Created]"
-                      name="Created"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[GETDATE]()</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">GETDATE()</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Updated]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Updated]"
-                      name="Updated"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[GETDATE]()</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">GETDATE()</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Stage State To NDS\Add Created, Updated.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Stage State To NDS\Add SourceID Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Add SourceID Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Stage State To NDS\Add SourceID Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Stage State To NDS\Add SourceID Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output].Columns[SourceID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output].Columns[SourceID]"
-                      name="SourceID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">1</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">1</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Stage State To NDS\Add SourceID Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Stage State To NDS\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input].Columns[StateCode]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="StateCode"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]"
-                      name="Copy of StateCode"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Stage State To NDS\Lookup"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[State_NDS]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[State_NDS]) [refTable]
-where [refTable].[State_code] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="State_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State_code" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StateName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State_id" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Created" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastUpdated" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Stage State To NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Stage State To NDS\Lookup.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Stage State To NDS\Lookup.Inputs[Lookup Input].Columns[Copy of StateCode]"
-                      cachedDataType="i4"
-                      cachedName="Copy of StateCode"
-                      lineageId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">State_code</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Stage State To NDS\Lookup.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Stage State To NDS\Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Lookup.Outputs[Lookup Match Output].Columns[State_SK]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Stage State To NDS\Lookup.Outputs[Lookup Match Output].Columns[State_SK]"
-                      name="State_SK"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">State_SK</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Stage State To NDS\Lookup.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Stage State To NDS\Lookup.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Stage State To NDS\Lookup.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Stage State To NDS\Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Stage State To NDS\OLE DB Command"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE State_NDS
-SET 
-StateName = ?,
-State_id = ?,
-State_code = ?
-WHERE 
-State_SK = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Stage State To NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[State_id]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="State_id"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]" />
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[StateCode]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="StateCode"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]" />
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[State_SK]"
-                      cachedDataType="i4"
-                      cachedName="State_SK"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\Stage State To NDS\Lookup.Outputs[Lookup Match Output].Columns[State_SK]" />
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[State_name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="State_name"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="100"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="wstr"
-                      length="5"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="i4"
-                      name="Param_3">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Stage State To NDS\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[State_NDS]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Stage State To NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.NDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State_id]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="State_id"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_id]"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]" />
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
-                      cachedDataType="i4"
-                      cachedName="SourceID"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      lineageId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output].Columns[SourceID]" />
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Created]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Created"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created]"
-                      lineageId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Created]" />
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of StateCode]"
-                      cachedDataType="i4"
-                      cachedName="Copy of StateCode"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_code]"
-                      lineageId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]" />
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Updated]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Updated"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdated]"
-                      lineageId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output].Columns[Updated]" />
-                    <inputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State_name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="State_name"
-                      externalMetadataColumnId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_SK]"
-                      dataType="i4"
-                      name="State_SK" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_code]"
-                      dataType="i4"
-                      name="State_code" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
-                      dataType="wstr"
-                      length="100"
-                      name="StateName" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State_id]"
-                      dataType="wstr"
-                      length="5"
-                      name="State_id" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created]"
-                      dataType="dbTimeStamp"
-                      name="Created" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdated]"
-                      dataType="dbTimeStamp"
-                      name="LastUpdated" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
-                      dataType="i4"
-                      name="Status" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Stage State To NDS\Stage"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Stage"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
-    CAST(LEFT(County_fips, 2) AS INT) AS StateCode,
-    State_name,  
-    State_id
-FROM 
-    Counties_Stage C;</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Stage State To NDS\Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.STAGE]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-5GI3DC0I\MSSQLSERVER01.STAGE]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
-                      length="10"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[StateCode]"
-                      name="StateCode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_id]"
-                      length="5"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_id]"
-                      name="State_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_name]"
-                      length="255"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].Columns[State_name]"
-                      name="State_name"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
-                      dataType="i4"
-                      name="StateCode" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_id]"
-                      dataType="wstr"
-                      length="5"
-                      name="State_id" />
-                    <externalMetadataColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output].ExternalColumns[State_name]"
-                      dataType="wstr"
-                      length="255"
-                      name="State_name" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[StateCode]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[StateCode]"
-                      name="StateCode" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_name]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_name]"
-                      name="State_name" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_id]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[State_id]"
-                      name="State_id" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Stage State To NDS.Paths[Data Conversion Output]"
-              endId="Package\Stage State To NDS\Add SourceID Column.Inputs[Derived Column Input]"
-              name="Data Conversion Output"
-              startId="Package\Stage State To NDS\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Stage State To NDS.Paths[Derived Column Output]"
-              endId="Package\Stage State To NDS\Add Created, Updated.Inputs[Derived Column Input]"
-              name="Derived Column Output"
-              startId="Package\Stage State To NDS\Add SourceID Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Stage State To NDS.Paths[Derived Column Output1]"
-              endId="Package\Stage State To NDS\Lookup.Inputs[Lookup Input]"
-              name="Derived Column Output"
-              startId="Package\Stage State To NDS\Add Created, Updated.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Stage State To NDS.Paths[Lookup Match Output]"
-              endId="Package\Stage State To NDS\OLE DB Command.Inputs[OLE DB Command Input]"
-              name="Lookup Match Output"
-              startId="Package\Stage State To NDS\Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Stage State To NDS.Paths[Lookup No Match Output]"
-              endId="Package\Stage State To NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\Stage State To NDS\Lookup.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Stage State To NDS.Paths[OLE DB Source Output]"
-              endId="Package\Stage State To NDS\Data Conversion.Inputs[Data Conversion Input]"
-              name="OLE DB Source Output"
-              startId="Package\Stage State To NDS\Stage.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:CreationName=""
-      DTS:DTSID="{4B072432-A7F2-4A8C-9905-13F58FCF5DBC}"
-      DTS:From="Package\Stage State To NDS"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\Stage County To NDS" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
-      DTS:CreationName=""
-      DTS:DTSID="{0B402EBA-8DD1-4F51-8C40-AC6F1D6C1ECC}"
-      DTS:From="Package\Stage County To NDS"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 4"
-      DTS:To="Package\Stage AQI To NDS" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -5104,33 +5172,33 @@ FROM
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="165.6,41.6"
           Id="Package\Stage AQI To NDS"
-          TopLeft="283.976170503144,300.827448166652" />
+          TopLeft="836.461885830419,326.827448143862" />
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\Stage County To NDS"
-          TopLeft="269.642842815695,188.627449287615" />
+          TopLeft="780.699986626208,224.5686257267" />
         <NodeLayout
           Size="172,41.6"
-          Id="Package\Stage State To NDS"
-          TopLeft="276.309509118111,76.8274500650579" />
+          Id="Package\Sequence Container\Stage State To NDS"
+          TopLeft="77.6237952064463,180.498038142163" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="361.176175966903,118.427450065058">
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="160.511898066224,138.388235141961">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.199999222557"
+              EndConnector="0,42.1098030002021"
               Start="0,0"
-              End="0,62.699999222557">
+              End="0,34.6098030002021">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.699999222557" />
+                    End="0,34.6098030002021" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5140,19 +5208,19 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="363.40950665942,230.227449287615">
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="162.640469449939,222.098038142163">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.5999988790363"
+              EndConnector="0,62.0431380120469"
               Start="0,0"
-              End="0,63.0999988790363">
+              End="0,54.5431380120469">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.0999988790363" />
+                    End="0,54.5431380120469" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5161,6 +5229,47 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Sequence Container\UPDATE CET State"
+          TopLeft="74.1714295263194,8.08235286677382" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="157.38571522616,49.6823528667738">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.1058822751872"
+              Start="0,0"
+              End="0,39.6058822751872">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6058822751872" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Sequence Container\SELECT CET, LSET State"
+          TopLeft="60.6000009260009,96.788235141961" />
+        <NodeLayout
+          Size="286.4,41.6"
+          Id="Package\Sequence Container\UPDATE LSET, STATUS, ROW_COUNT State"
+          TopLeft="18.4571436934325,284.14117615421" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="350.4,390.4"
+          Size="350.4,433.6"
+          Id="Package\Sequence Container"
+          TopLeft="143.571428877054,38.2352940841322" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -5901,40 +6010,40 @@ FROM
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Stage State To NDS">
+    design-time-name="Package\Sequence Container\Stage State To NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="112.8,41.6"
-          Id="Package\Stage State To NDS\Lookup"
+          Id="Package\Sequence Container\Stage State To NDS\Lookup"
           TopLeft="193.333322770066,412.866664491031" />
         <NodeLayout
           Size="182.4,41.6"
-          Id="Package\Stage State To NDS\Add SourceID Column"
+          Id="Package\Sequence Container\Stage State To NDS\Add SourceID Column"
           TopLeft="150.064100294859,213.34358730256" />
         <NodeLayout
           Size="171.2,41.6"
-          Id="Package\Stage State To NDS\OLE DB Destination"
+          Id="Package\Sequence Container\Stage State To NDS\OLE DB Destination"
           TopLeft="38.3333312388924,547.533330265747" />
         <NodeLayout
           Size="105.6,41.6"
-          Id="Package\Stage State To NDS\Stage"
+          Id="Package\Sequence Container\Stage State To NDS\Stage"
           TopLeft="183.461535727749,32.4615379778238" />
         <NodeLayout
           Size="167.2,41.6"
-          Id="Package\Stage State To NDS\OLE DB Command"
+          Id="Package\Sequence Container\Stage State To NDS\OLE DB Command"
           TopLeft="341.025635016779,542.615377488228" />
         <NodeLayout
           Size="156,41.6"
-          Id="Package\Stage State To NDS\Data Conversion"
+          Id="Package\Sequence Container\Stage State To NDS\Data Conversion"
           TopLeft="169.99999071161,119.266665937437" />
         <NodeLayout
           Size="182.4,41.6"
-          Id="Package\Stage State To NDS\Add Created, Updated"
+          Id="Package\Sequence Container\Stage State To NDS\Add Created, Updated"
           TopLeft="146.987177263786,322.574354905664" />
         <EdgeLayout
-          Id="Package\Stage State To NDS.Paths[Data Conversion Output]"
+          Id="Package\Sequence Container\Stage State To NDS.Paths[Data Conversion Output]"
           TopLeft="244.432045503234,160.866665937437">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5956,7 +6065,7 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage State To NDS.Paths[OLE DB Source Output]"
+          Id="Package\Sequence Container\Stage State To NDS.Paths[OLE DB Source Output]"
           TopLeft="236.261535727749,74.0615379778238">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5990,7 +6099,7 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage State To NDS.Paths[Lookup No Match Output]"
+          Id="Package\Sequence Container\Stage State To NDS.Paths[Lookup No Match Output]"
           TopLeft="232.266656103399,454.466664491031">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6026,7 +6135,7 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage State To NDS.Paths[Lookup Match Output]"
+          Id="Package\Sequence Container\Stage State To NDS.Paths[Lookup Match Output]"
           TopLeft="267.199989436733,454.466664491031">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6062,7 +6171,7 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage State To NDS.Paths[Derived Column Output1]"
+          Id="Package\Sequence Container\Stage State To NDS.Paths[Derived Column Output1]"
           TopLeft="237.787177263786,364.174354905664">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6096,7 +6205,7 @@ FROM
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage State To NDS.Paths[Derived Column Output]"
+          Id="Package\Sequence Container\Stage State To NDS.Paths[Derived Column Output]"
           TopLeft="239.325638779323,254.94358730256">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6121,7 +6230,7 @@ FROM
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage State To NDS\Lookup">
+    design-time-name="Package\Sequence Container\Stage State To NDS\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6144,7 +6253,7 @@ FROM
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage State To NDS\OLE DB Destination">
+    design-time-name="Package\Sequence Container\Stage State To NDS\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6157,7 +6266,7 @@ FROM
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage State To NDS\Stage">
+    design-time-name="Package\Sequence Container\Stage State To NDS\Stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
