@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="NDSToDDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="87"
-  DTS:VersionGUID="{8FEB9CC5-74FC-4AF5-90BF-0BCCC192CFEB}">
+  DTS:VersionBuild="88"
+  DTS:VersionGUID="{C439C853-F7A7-484F-91AB-D290D0C97E0E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1110,7 +1110,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{A43BB74D-E550-4106-8D21-48094C499B8D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = GETDATE()&#xA;WHERE TABLE_NAME = 'Dim_State'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Dim_State'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -2303,7 +2303,7 @@ WHERE County_SK = ?</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{A43BB74D-E550-4106-8D21-48094C499B8D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = GETDATE()&#xA;WHERE TABLE_NAME  = 'Dim_counties'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Dim_Counties'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -3161,7 +3161,7 @@ WHERE Category_SK = ?
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{A43BB74D-E550-4106-8D21-48094C499B8D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET  = GETDATE()&#xA;WHERE TABLE_NAME  = 'Dim_Category'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Dim_Category'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -3258,7 +3258,7 @@ WHERE Category_SK = ?
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{A43BB74D-E550-4106-8D21-48094C499B8D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET  = GETDATE()&#xA;WHERE TABLE_NAME = 'Dim_Year'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Dim_Year'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -4938,7 +4938,7 @@ WHERE Quarter_SK = ?</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{A43BB74D-E550-4106-8D21-48094C499B8D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET  = GETDATE()&#xA;WHERE TABLE_NAME = 'Dim_Quarter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Dim_Quarter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -6132,7 +6132,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{A43BB74D-E550-4106-8D21-48094C499B8D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = GETDATE()&#xA;WHERE TABLE_NAME = 'Dim_Month'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Dim_Month'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -7324,7 +7324,7 @@ WHERE Day_SK = ?</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{A43BB74D-E550-4106-8D21-48094C499B8D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET  = GETDATE()&#xA;WHERE TABLE_NAME = 'Dim_Day'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Dim_Day'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -10021,7 +10021,7 @@ WHERE AQI_SK = ?</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{A43BB74D-E550-4106-8D21-48094C499B8D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET  = GETDATE()&#xA;WHERE TABLE_NAME = 'Fact_AirQualityData'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Fact_AirQualityData'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -11579,7 +11579,7 @@ WHERE AQI_SK = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12041,7 +12041,7 @@ WHERE AQI_SK = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12051,7 +12051,7 @@ WHERE AQI_SK = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12634,7 +12634,7 @@ WHERE AQI_SK = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
