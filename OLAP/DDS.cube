@@ -1,4 +1,4 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5a4ddd6f-b08d-4823-995b-cbfeba952c25" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="cbfac955-8475-419a-ad1a-42807f1321f2" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DDS</ID>
   <Name>DDS</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="32" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-7340" scrolltop="10285" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="19812" y="15261" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="32" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-7340" scrolltop="10285" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="19770" y="13166" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -280,82 +280,82 @@
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
   <Dimensions>
-    <Dimension dwd:design-time-name="57a16104-4509-4d2b-b11d-d7dbd1af1943">
+    <Dimension dwd:design-time-name="25c5681c-64b0-4bfc-8a9c-6444ff9c6001">
       <ID>Dim Category</ID>
       <Name>Dim Category</Name>
       <DimensionID>Dim Category</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="0ad9dc3c-bb17-436b-91df-df29a15988ac">
+        <Attribute dwd:design-time-name="1053d1c6-b13a-4b8d-96d2-52e92acc6a3b">
           <AttributeID>Category SK</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="fefeeb30-d34b-4c17-92d1-a4e8fc2e2ade">
+        <Attribute dwd:design-time-name="a1e3add1-b106-4928-88a8-0bd2e1f19fcb">
           <AttributeID>Category Value</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
-    <Dimension dwd:design-time-name="ace8527d-7ae3-4952-b537-59cb9d15d638">
+    <Dimension dwd:design-time-name="c15a4e97-ab8b-4ba9-9da1-296920884cda">
       <ID>Dim Counties</ID>
       <Name>Dim Counties</Name>
       <DimensionID>Dim Counties</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="0b732a18-a86c-4c65-b436-4ec65e7edcfc">
+        <Attribute dwd:design-time-name="83b2671b-45d3-4ccf-8d04-daacc03f7d74">
           <AttributeID>County SK</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="bf1dfd95-2394-4f54-b09d-08f148915cb5">
+        <Attribute dwd:design-time-name="3a398739-05d0-44fe-ae0f-6a963b0dbacb">
           <AttributeID>State SK</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="0571595c-28a6-4ce1-a5d5-47ed1f1b3d9b">
+        <Attribute dwd:design-time-name="f442b61b-606b-4c13-9fb0-3770a244ab2e">
           <AttributeID>State Name</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="2474deb1-a44f-496f-9797-a6c86aadda58">
+        <Attribute dwd:design-time-name="c3d6cea0-5119-41fe-a64c-6dcb9bbfb137">
           <AttributeID>County Ascii</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="fc742370-6435-4727-bf6c-21cf6eec0861">
+        <Hierarchy dwd:design-time-name="cdcbcacc-cfe8-409e-a0cd-68d2c84c7087">
           <HierarchyID>Hierarchy</HierarchyID>
         </Hierarchy>
       </Hierarchies>
     </Dimension>
-    <Dimension dwd:design-time-name="156cba8e-4146-4982-a4ac-f34890f93d64">
+    <Dimension dwd:design-time-name="60969e78-5de6-427e-9bef-70189289ea00">
       <ID>Dim Day</ID>
       <Name>Dim Day</Name>
       <DimensionID>Dim Day</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="4fa1dde6-8cbb-4bcf-9a1b-01c1a360e083">
+        <Attribute dwd:design-time-name="cbc1cecd-6a4b-4f9f-bef2-cbd5db67ed38">
           <AttributeID>Day SK</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="1ddbc873-187a-4f4f-8c48-dfcdddce7402">
+        <Attribute dwd:design-time-name="01796c19-e1ee-4fd6-ab0c-aa96880d7c6d">
           <AttributeID>Month SK</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="022ab2ca-d231-43e1-9a2b-edd983df7986">
+        <Attribute dwd:design-time-name="6faee31b-d203-4aff-8168-be7805e87518">
           <AttributeID>Quarter SK</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="3d2121d6-0399-4d6e-af70-6b0e2f03fb85">
+        <Attribute dwd:design-time-name="80d7c33d-48f4-43ec-8429-c34d0e3e1f32">
           <AttributeID>Year SK</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="74a7bd17-f923-454e-b8e0-8e5dc10c92dc">
+        <Attribute dwd:design-time-name="ddd53cd1-e5f4-4b48-b8c6-c05946dddc80">
           <AttributeID>Month Value</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="eb9fae65-b0b6-4435-a6f0-7e04d0b67ce0">
+        <Attribute dwd:design-time-name="06690461-6b68-44f8-991f-1094e287fab4">
           <AttributeID>Quarter Value</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="ecf65e69-380f-4aa9-9e2c-63e8b5e2263a">
+        <Attribute dwd:design-time-name="eb8d347d-0850-4a66-a868-218ced7907cb">
           <AttributeID>Day Value</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="bad463da-20a3-4229-8cf1-3e433efe7289">
+        <Attribute dwd:design-time-name="27466794-8fb1-4c51-a5a6-2c251df0ca0c">
           <AttributeID>Year Value</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="dcbfb8c0-ffa2-442f-9f53-9c588cdd52d8">
+        <Hierarchy dwd:design-time-name="ffaf60bc-968c-4471-849c-30bd686ee875">
           <HierarchyID>Hierarchy</HierarchyID>
         </Hierarchy>
       </Hierarchies>
     </Dimension>
   </Dimensions>
   <MeasureGroups>
-    <MeasureGroup dwd:design-time-name="7c14a5fc-2206-40f1-8b70-ecaa26e4ef04">
+    <MeasureGroup dwd:design-time-name="19693e7b-6558-4aea-adba-457352d0e777">
       <ID>Fact Air Quality Data</ID>
       <Name>Fact Air Quality Data</Name>
       <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -363,82 +363,82 @@
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
       <State>Unprocessed</State>
       <Measures>
-        <Measure dwd:design-time-name="62f4a26e-fc13-46b9-9562-91e6e8d2cc8d">
+        <Measure dwd:design-time-name="3513971c-38e7-49eb-bd49-1c4217ae838a">
           <ID>AQI ID</ID>
           <Name>AQI ID</Name>
-          <Source dwd:design-time-name="03d5d222-ac36-4cb4-823f-e8d9b9827c79">
+          <Source dwd:design-time-name="24e15540-6d7d-4f2f-b473-e956e73fc9d4">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="f720c06e-4011-4b39-b09a-16b179d52f03">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="f46ea5a3-3968-4bc7-b0f9-7f8c9b43753e">
               <TableID>dbo_Fact_AirQualityData</TableID>
               <ColumnID>AQI_ID</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="801dd15c-2cea-4823-a79d-e08f9fcda8fb">
+        <Measure dwd:design-time-name="65940182-9165-4b07-8dc2-9cc34fe5d5da">
           <ID>AQI</ID>
           <Name>AQI</Name>
-          <Source dwd:design-time-name="3d11895b-df55-41d1-b7d3-392a9603b961">
+          <Source dwd:design-time-name="f5e52016-3ad3-4f44-97e9-4a78d7aef785">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="e6f633ab-5032-4e21-ad9f-239b0ec01b70">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c9cbcb9f-c056-400c-bcc8-2ea47cad33dc">
               <TableID>dbo_Fact_AirQualityData</TableID>
               <ColumnID>AQI</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="74022512-2aee-4070-84d3-a3909ff3b7d3">
+        <Measure dwd:design-time-name="3a995f73-a86e-42f0-9b87-4d7a824b25e8">
           <ID>Source ID</ID>
           <Name>Source ID</Name>
-          <Source dwd:design-time-name="4539f842-c5d6-42af-87d0-106410232ede">
+          <Source dwd:design-time-name="416ecdc3-e24f-4a49-a39f-bc51c1eeb41c">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="0772c539-de94-4c66-8460-19bf0e180704">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="686a2a63-6ac7-4c76-9c11-b7f86ed2d289">
               <TableID>dbo_Fact_AirQualityData</TableID>
               <ColumnID>SourceID</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="6201fc82-c3ea-4bc2-8d94-807a09887a5e">
+        <Measure dwd:design-time-name="4b3d01d8-b94e-4bee-9fe7-83572248972b">
           <ID>Status</ID>
           <Name>Status</Name>
-          <Source dwd:design-time-name="08757b3d-b3ed-4b42-8861-341530f85faf">
+          <Source dwd:design-time-name="e3b6ab22-f9c1-4e87-ab85-bcbccd86b03e">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="11bb15f7-536e-4f10-bfce-5dfbed3902d1">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="54ada67e-ec72-4b1a-ace7-0e4842e21ece">
               <TableID>dbo_Fact_AirQualityData</TableID>
               <ColumnID>Status</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="7af2f8bf-7fe0-4347-bfcf-5f644990db3b">
+        <Measure dwd:design-time-name="6775d96e-b19c-43ae-8d87-1b45cd4bc709">
           <ID>Minimum AQI</ID>
           <Name>Minimum AQI</Name>
           <AggregateFunction>Min</AggregateFunction>
-          <Source dwd:design-time-name="0d44da44-48ef-4634-a7b7-0909f955b3c1">
+          <Source dwd:design-time-name="33587546-df2e-4556-acc5-223c5e8751f8">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="093f6d23-fe9f-4b36-b9fc-2e1a2afd9ec9">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="78c3efd8-9241-43a3-92b9-70edd1d9b066">
               <TableID>dbo_Fact_AirQualityData</TableID>
               <ColumnID>AQI</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="fd2666d4-f5b7-446b-8351-fa5cd2076286">
+        <Measure dwd:design-time-name="d22c04be-eea0-4815-96f4-297a8c1f73e7">
           <ID>Maximum AQI</ID>
           <Name>Maximum AQI</Name>
           <AggregateFunction>Max</AggregateFunction>
-          <Source dwd:design-time-name="67c4346d-ea88-4fdf-8c74-f6a7c5854c2b">
+          <Source dwd:design-time-name="7b9d7bd3-1a97-47c3-bfdd-ecaa23c1bcd6">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="7de3b4fe-0edd-4c16-9995-8530b87955ca">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="5a011325-ad54-464d-9a84-8ec5224470d5">
               <TableID>dbo_Fact_AirQualityData</TableID>
               <ColumnID>AQI</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="135950df-ffdb-4301-a08a-a4f140ad862b">
+        <Measure dwd:design-time-name="010cbde4-1f20-494c-b1f7-dcf35ec3d3e4">
           <ID>Fact Air Quality Data Count 1</ID>
-          <Name>Fact Air Quality Data Count 1</Name>
+          <Name>Fact Air Quality Data Count</Name>
           <AggregateFunction>Count</AggregateFunction>
-          <Source dwd:design-time-name="f5e6417e-8120-425a-8d60-4844ffdd5eb3">
+          <Source dwd:design-time-name="25519be2-03c0-4e03-8da5-ae98c7a08219">
             <DataType>Integer</DataType>
             <DataSize>4</DataSize>
-            <Source xsi:type="RowBinding" dwd:design-time-name="03eaea4b-e7cd-47c2-b194-5385c81c853f">
+            <Source xsi:type="RowBinding" dwd:design-time-name="dd04abd2-100e-4cfd-bb49-0705b5d4a8a9">
               <TableID>dbo_Fact_AirQualityData</TableID>
             </Source>
           </Source>
@@ -447,16 +447,16 @@
       <StorageMode>Molap</StorageMode>
       <ProcessingMode>Regular</ProcessingMode>
       <Dimensions>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="73f44688-aab2-4b35-8351-f068dbe347ec">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="cd9ed091-165c-4948-bf9f-93122bfca42d">
           <CubeDimensionID>Dim Category</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="69e874ea-f9e3-4627-986c-40ef2ef459b9">
+            <Attribute dwd:design-time-name="b35f46e9-4bdd-4260-b065-3811d15146a0">
               <AttributeID>Category SK</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="6416d0fd-7a32-44c3-98e3-28fa4ab04ced">
+                <KeyColumn dwd:design-time-name="cf2a074d-d578-4ef1-9d6e-44c3a8d2ebcd">
                   <DataType>Integer</DataType>
                   <NullProcessing>UnknownMember</NullProcessing>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="329fa2eb-d2c0-4423-9ce1-5e6888b20e0a">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="06cb49d0-39fa-484b-baba-7ff0370314fe">
                     <TableID>dbo_Fact_AirQualityData</TableID>
                     <ColumnID>Category_id</ColumnID>
                   </Source>
@@ -466,16 +466,16 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b2809bec-c2bf-49ed-b17c-a4dcc98f4b1e">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="863be426-f31b-49a8-a1ed-c2372edb857a">
           <CubeDimensionID>Dim Counties</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="90d2cdae-8562-416a-8dec-044d56f0ff93">
+            <Attribute dwd:design-time-name="8498187b-da6b-4e4b-ba74-87978f5f4f73">
               <AttributeID>County SK</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="7053ba6c-84db-460c-abda-9cd0fbc842f3">
+                <KeyColumn dwd:design-time-name="1ba37480-04c5-4151-9049-b2f9eb83175c">
                   <DataType>Integer</DataType>
                   <NullProcessing>UnknownMember</NullProcessing>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a5cce8d6-e1ab-4255-a3a7-1f18c5850718">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="deed1ec5-989e-474e-9203-cec7ca197808">
                     <TableID>dbo_Fact_AirQualityData</TableID>
                     <ColumnID>County_id</ColumnID>
                   </Source>
@@ -485,16 +485,16 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="3995be65-f5c8-4c99-97c2-0962b959dca7">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ae020a94-c4eb-4ca6-a9a6-8d6867d6aabb">
           <CubeDimensionID>Dim Day</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="b59f5eb1-cfbc-49cc-9699-45ca2991dbe1">
+            <Attribute dwd:design-time-name="78f7b456-e3b7-4cd4-a28c-83adcb9e5422">
               <AttributeID>Day SK</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="86d5732f-0939-4f06-90d2-0b1e52187820">
+                <KeyColumn dwd:design-time-name="46c49fcc-022b-413b-b32a-aa89cd897eff">
                   <DataType>Integer</DataType>
                   <NullProcessing>UnknownMember</NullProcessing>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="dd2e23c3-3c1b-4242-86d7-86129ec59e13">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6a111155-a431-4eee-94d3-5f23ef2a18e4">
                     <TableID>dbo_Fact_AirQualityData</TableID>
                     <ColumnID>Day_id</ColumnID>
                   </Source>
@@ -508,7 +508,7 @@
       <Partitions />
     </MeasureGroup>
   </MeasureGroups>
-  <Source dwd:design-time-name="08efa2bf-9909-489d-ad16-6298251cdc5d">
+  <Source dwd:design-time-name="1a7ecf61-5d4f-4ad7-a986-18faeb807828">
     <DataSourceViewID>DDS</DataSourceViewID>
   </Source>
 </Cube>
