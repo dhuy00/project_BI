@@ -1,0 +1,76 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="fc4857f7-3085-4fc5-b69d-6cf40282ba35" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DataMining_Quarter</ID>
+  <Name>DataMining_Quarter</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>DDS</DataSourceID>
+  <Schema>
+    <xs:schema id="DataMining_Quarter" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="DataMining_Quarter" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="48ef3781-9e8e-472d-b5f3-0cba38cf9224">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_DataMining_Quarter" msprop:design-time-name="081be8c9-5b43-49d2-aa05-a152cadb2b09" msprop:DbTableName="DataMining_Quarter" msprop:FriendlyName="DataMining_Quarter" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="AirQualityData_Key" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="a51059ab-0a6d-48fa-a2c5-51d18fd08325" msprop:DbColumnName="AirQualityData_Key" msprop:FriendlyName="AirQualityData_Key" type="xs:int" />
+                  <xs:element name="Year" msprop:design-time-name="12cd7bff-4267-4593-90af-e16dfc468844" msprop:DbColumnName="Year" msprop:FriendlyName="Year" type="xs:int" minOccurs="0" />
+                  <xs:element name="Quarter" msprop:design-time-name="a7ea19dc-26d5-4d29-bd5b-0a66c61c512e" msprop:DbColumnName="Quarter" msprop:FriendlyName="Quarter" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="AverageAQI" msprop:design-time-name="885cca80-1c53-4056-aa06-f8c2405b041f" msprop:DbColumnName="AverageAQI" msprop:FriendlyName="AverageAQI" type="xs:int" minOccurs="0" />
+                  <xs:element name="MaxAQI" msprop:design-time-name="21d1c2bf-479c-4afc-bae5-dfb5ac042d81" msprop:DbColumnName="MaxAQI" msprop:FriendlyName="MaxAQI" type="xs:int" minOccurs="0" />
+                  <xs:element name="MinAQI" msprop:design-time-name="ec87e0ad-9770-4b33-954a-517be9004760" msprop:DbColumnName="MinAQI" msprop:FriendlyName="MinAQI" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DataMining_Quarter" />
+          <xs:field xpath="AirQualityData_Key" />
+        </xs:unique>
+      </xs:element>
+    </xs:schema>
+    <DataMining_Quarter xmlns="" />
+  </Schema>
+</DataSourceView>
