@@ -80,14 +80,28 @@ INSERT INTO DATA_FLOW_DDS (TABLE_NAME, LSET, CET)
 VALUES 
     ('Dim_State', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
 	('Fact_AirQualityData', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('AirQualityData_DataMining', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
 	('Dim_Year', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
 	('Dim_Category', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
 	('Dim_Quarter', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
 	('Dim_Counties', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
 	('Dim_Month', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Dim_Day', '2015-01-01 00:00:00', '2015-01-01 00:00:00')
+	('Dim_Day', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('DataMining_Day', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('DataMining_Month', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('DataMining_Quarter', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('DataMining_Year', '2015-01-01 00:00:00', '2015-01-01 00:00:00')
 GO
 
-SELECT * FROM DATA_FLOW_DDS
+--SELECT * FROM DATA_FLOW_DDS
+
+--DELETE FROM DATA_FLOW_DDS
+--WHERE TABLE_NAME = 'DataMining_Day';
+
+--INSERT INTO DATA_FLOW_DDS (TABLE_NAME, LSET, CET)
+--VALUES 
+--	('DataMining_Day', '2015-01-01 00:00:00', '2015-01-01 00:00:00')
+--GO
+
+
+
 

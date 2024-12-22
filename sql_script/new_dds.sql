@@ -18,6 +18,10 @@ DROP TABLE IF EXISTS Dim_Month
 DROP TABLE IF EXISTS Dim_Quarter
 DROP TABLE IF EXISTS Dim_Year
 DROP TABLE IF EXISTS Dim_Category
+DROP TABLE IF EXISTS DataMining_Day
+DROP TABLE IF EXISTS DataMining_Month
+DROP TABLE IF EXISTS DataMining_Quarter
+DROP TABLE IF EXISTS DataMining_Year
 
 CREATE TABLE Dim_Category (
 	Category_SK INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
@@ -112,24 +116,44 @@ CREATE TABLE Fact_AirQualityData (
 	CONSTRAINT FK_AirQualityData_Date FOREIGN KEY (Day_id) REFERENCES Dim_Day(Day_SK),
 	CONSTRAINT FK_AirQualityData_Category FOREIGN KEY (Category_id) REFERENCES Dim_Category(Category_SK)
 );
-
-CREATE TABLE AirQualityData_DataMining (
+----------------------------------Data Mining Table----------------------------------
+CREATE TABLE DataMining_Day (
 	AirQualityData_Key INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-	StateName NVARCHAR(100),
-	CountyName NVARCHAR(255),
-	Day INT,
-	Month INT,
-	Quarter INT,
-	Year INT,
-	DefiningParameter NVARCHAR(100),
-	DefiningSite NVARCHAR(100),
-	NumberOfSitesReporting INT,
-	DayLightSaving CHAR(5) CHECK (DayLightSaving IN ('TRUE', 'FALSE')),
-    Lat DECIMAL(10, 6),
-    Lng DECIMAL(10, 6),
-    population INT,
-	AQI INT,
+	Date DATETIME,
+	AverageAQI INT,
+	MaxAQI INT,
+	MinAQI INT,
 )
+GO
+
+CREATE TABLE DataMining_Month (
+	AirQualityData_Key INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	Month DATETIME,
+	AverageAQI INT,
+	MaxAQI INT,
+	MinAQI INT,
+)
+GO
+
+CREATE TABLE DataMining_Quarter (
+	AirQualityData_Key INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	Year INT,
+	Quarter CHAR(5),
+	AverageAQI INT,
+	MaxAQI INT,
+	MinAQI INT,
+)
+GO
+
+CREATE TABLE DataMining_Year (
+	AirQualityData_Key INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	Year INT,
+	AverageAQI INT,
+	MaxAQI INT,
+	MinAQI INT,
+)
+GO
+
 
 SELECT * FROM SYS.TABLES
 SELECT * FROM Dim_State
@@ -140,29 +164,7 @@ SELECT * FROM Dim_Quarter
 SELECT * FROM Dim_Counties
 SELECT * FROM Dim_Month
 SELECT * FROM Dim_Day
-SELECT * FROM AirQualityData_DataMining
-
-CREATE TABLE DataMining_Temp (
-	Table_Key INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-	Year INT,
-	AQI INT
-)
-
-CREATE TABLE DataMining_CaseTable (
-	CaseTable_Key INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-	Day INT,
-	Month INT,
-	Quarter INT,
-	Year INT,
-)
-
--- Thêm dữ liệu mẫu
-INSERT INTO DataMining_CaseTable (Day, Month, Quarter, Year)
-VALUES 
-(1, 1, 1, 2023),
-(15, 2, 1, 2023),
-(10, 4, 2, 2023),
-(25, 6, 2, 2023),
-(5, 9, 3, 2023),
-(20, 11, 4, 2023),
-(31, 12, 4, 2023);
+SELECT * FROM DataMining_Day
+SELECT * FROM DataMining_Month
+SELECT * FROM DataMining_Quarter
+SELECT * FROM DataMining_Year
