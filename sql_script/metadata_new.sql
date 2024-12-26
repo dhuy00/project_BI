@@ -9,99 +9,43 @@ GO
 USE METADATA
 GO
 
-------------------------------------------DATA FLOW CHO STAGE------------------------------------------
-DROP TABLE IF EXISTS DATA_FLOW_STAGE
-GO
-CREATE TABLE DATA_FLOW_STAGE (
-	ID INT NOT NULL IDENTITY(1, 1),
-	TABLE_NAME VARCHAR(50),
-	LSET DATETIME,
-	CET DATETIME,
-	STATUS VARCHAR(30) DEFAULT 'UNDEFINED',
-	ROW_COUNT INT DEFAULT 0,
-)
-GO
-
-TRUNCATE TABLE DATA_FLOW_STAGE
-
---INSERT DU LIEU VAO METADATA
-INSERT INTO DATA_FLOW_STAGE (TABLE_NAME, LSET, CET)
-VALUES 
-    ('US_COUNTIES', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('STATE_AQI', '2015-01-01 00:00:00', '2015-01-01 00:00:00')
-GO
-
-SELECT * FROM DATA_FLOW_STAGE
-
-------------------------------------------DATA FLOW CHO NDS------------------------------------------
-DROP TABLE IF EXISTS DATA_FLOW_NDS
-GO
-CREATE TABLE DATA_FLOW_NDS (
-	ID INT NOT NULL IDENTITY(1, 1),
-	TABLE_NAME VARCHAR(50),
-	LSET DATETIME,
-	CET DATETIME,
-	STATUS VARCHAR(30) DEFAULT 'UNDEFINED',
+---------------------------------------------------------------
+CREATE TABLE DATA_FLOW (
+    FLOW_ID INT IDENTITY(1, 1) PRIMARY KEY,
+    DESCRIPTION VARCHAR(255),
+    SOURCE VARCHAR(50),
+    TARGET VARCHAR(50),
+    TRANSFORMATION VARCHAR(255),
+    STATUS VARCHAR(30) DEFAULT 'UNDEFINED',
 	ROW_INSERT INT DEFAULT 0,
-	ROW_UPDATE INT DEFAULT 0
-)
-GO
+	ROW_UPDATE INT DEFAULT 0,
+    LSET DATETIME,
+    CET DATETIME,
+);
 
-TRUNCATE TABLE DATA_FLOW_NDS
+TRUNCATE TABLE DATA_FLOW
 
---INSERT DU LIEU VAO METADATA
-INSERT INTO DATA_FLOW_NDS (TABLE_NAME, LSET, CET)
+
+INSERT INTO DATA_FLOW (DESCRIPTION, SOURCE, TARGET, TRANSFORMATION, LSET, CET)
 VALUES 
-    ('State_NDS', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Counties_NDS', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('AirQualityData_NDS', '2015-01-01 00:00:00', '2015-01-01 00:00:00')
+	('Extract counties data from excel source to Stage table', 'file excel uscounties', 'Counties_Stage', 'Add Created, LastUpdated, Status SourceID columns, convert county_fips datatype to String', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Extract air quality data from excel source to Stage table', 'file excel state_aqi 2021, 2022, 2023', 'AirQualityData_Stage', 'Add Created, LastUpdated, Status, SourceID, county_fips column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load state data from Stage to NDS', 'Counties_Stage', 'State_NDS', 'Add Created, LastUpdated, Status, SourceID column, convert StateCode to integer', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load counties data from Stage to NDS', 'Counties_Stage', 'Counties_NDS', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load air quality data from Stage to NDS', 'AirQualityData_Stage', 'AirQualityData_NDS', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load state data from NDS to DDS', 'State_NDS', 'Dim_State', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load counties data from NDS to county dimension in DDS', 'Counties_NDS', 'Dim_Counties', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load category data from NDS to category dimension in DDS', 'AirQualityData_NDS', 'Dim_Category', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load defining parameter data from NDS to defining parameter dimension in DDS', 'AirQualityData_NDS', 'Dim_DefiningParameter', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Hierarchize day dimension from NDS to DDS', 'AirQualityData_NDS', 'Dim_Day', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Hierarchize month dimension from NDS to DDS', 'AirQualityData_NDS', 'Dim_Month', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Hierarchize month dimension from NDS to DDS', 'AirQualityData_NDS', 'Dim_Quarter', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Hierarchize month dimension from NDS to DDS', 'AirQualityData_NDS', 'Dim_Year', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load AQI data from NDS to DDS fact table', 'AirQualityData_NDS', 'Fact_AirQualityData', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load data from nds to dds for next day aqi prediction', 'AirQualityData_NDS', 'DataMining_Day', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load data from nds to dds for next month aqi prediction', 'AirQualityData_NDS', 'DataMining_Month', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load data from nds to dds for next quarter aqi prediction', 'AirQualityData_NDS', 'DataMining_Quarter', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
+	('Load data from nds to dds for next year aqi prediction', 'AirQualityData_NDS', 'DataMining_Year', 'Add Created, LastUpdated, Status, SourceID column', '2015-01-01 00:00:00', '2015-01-01 00:00:00')
 GO
 
-SELECT * FROM DATA_FLOW_NDS
-
-------------------------------------------DATA FLOW CHO DDS------------------------------------------
-DROP TABLE IF EXISTS DATA_FLOW_DDS
-GO
-CREATE TABLE DATA_FLOW_DDS (
-	ID INT NOT NULL IDENTITY(1, 1),
-	TABLE_NAME VARCHAR(50),
-	LSET DATETIME,
-	CET DATETIME,
-	STATUS VARCHAR(30) DEFAULT 'UNDEFINED',
-	ROW_INSERT INT DEFAULT 0,
-	ROW_UPDATE INT DEFAULT 0
-)
-GO
-
-TRUNCATE TABLE DATA_FLOW_DDS
-
---INSERT DU LIEU VAO METADATA
-INSERT INTO DATA_FLOW_DDS (TABLE_NAME, LSET, CET)
-VALUES 
-    ('Dim_State', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Fact_AirQualityData', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Dim_Year', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Dim_Category', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Dim_Quarter', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Dim_Counties', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Dim_Month', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('Dim_Day', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('DataMining_Day', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('DataMining_Month', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('DataMining_Quarter', '2015-01-01 00:00:00', '2015-01-01 00:00:00'),
-	('DataMining_Year', '2015-01-01 00:00:00', '2015-01-01 00:00:00')
-GO
-
---SELECT * FROM DATA_FLOW_DDS
-
---DELETE FROM DATA_FLOW_DDS
---WHERE TABLE_NAME = 'DataMining_Day';
-
---INSERT INTO DATA_FLOW_DDS (TABLE_NAME, LSET, CET)
---VALUES 
---	('DataMining_Day', '2015-01-01 00:00:00', '2015-01-01 00:00:00')
---GO
-
-
-
-
+SELECT * FROM DATA_FLOW

@@ -12,8 +12,8 @@
   DTS:MaxErrorCount="10"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="86"
-  DTS:VersionGUID="{F34BDB4B-A488-4FF1-9CCD-DB66E45C4A50}">
+  DTS:VersionBuild="89"
+  DTS:VersionGUID="{473F2943-22D6-44C5-99CD-8798DD734EE0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -242,7 +242,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\(2B)uscounties_modified.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\(2B)uscounties_modified.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -254,7 +254,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\(2B)uscounties.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Study\HKI_24-25\BI\project\dataset\(2B)uscounties.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -2941,7 +2941,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{7B25F411-A0DF-4F13-91BF-FD8D3D7D7E2C}"
-              SQLTask:SqlStatementSource="SELECT LSET, CET&#xA;FROM DATA_FLOW_STAGE&#xA;WHERE TABLE_NAME='STATE_AQI'"
+              SQLTask:SqlStatementSource="SELECT LSET, CET&#xA;FROM DATA_FLOW&#xA;WHERE TARGET='AirQualityData_Stage'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LSET"
@@ -2983,7 +2983,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{7F0FDDFB-48CC-415B-884D-C014F5B010DA}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_STAGE&#xA;SET          CET = GETDATE()&#xA;WHERE  (TABLE_NAME = 'STATE_AQI')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET          CET = GETDATE()&#xA;WHERE  (TARGET = 'AirQualityData_Stage')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -3000,7 +3000,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{7B25F411-A0DF-4F13-91BF-FD8D3D7D7E2C}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_STAGE&#xA;SET LSET = CET,&#xA;STATUS = 'SUCCESS',&#xA;ROW_COUNT = ?&#xA;WHERE TABLE_NAME='STATE_AQI'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = CET,&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?&#xA;WHERE TARGET='STATE_AQI'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ROW_COUNT"
@@ -3949,7 +3949,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{7B25F411-A0DF-4F13-91BF-FD8D3D7D7E2C}"
-              SQLTask:SqlStatementSource="SELECT LSET, CET&#xA;FROM DATA_FLOW_STAGE&#xA;WHERE TABLE_NAME='US_COUNTIES'"
+              SQLTask:SqlStatementSource="SELECT LSET, CET&#xA;FROM DATA_FLOW&#xA;WHERE TARGET='Counties_Stage'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LSET"
@@ -3991,7 +3991,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{1C2638DA-C4E6-4C3D-B4BB-6BA3C4505B51}"
-              SQLTask:SqlStatementSource="UPDATE               DATA_FLOW_STAGE&#xA;SET                        CET = GETDATE()&#xA;WHERE                  (TABLE_NAME = 'US_COUNTIES')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE               DATA_FLOW&#xA;SET                        CET = GETDATE()&#xA;WHERE                  (TARGET = 'Counties_Stage')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -4008,7 +4008,7 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{7B25F411-A0DF-4F13-91BF-FD8D3D7D7E2C}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_STAGE&#xA;SET LSET = CET,&#xA;STATUS = 'SUCCESS',&#xA;ROW_COUNT = ?&#xA;WHERE TABLE_NAME='US_COUNTIES'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = CET,&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?&#xA;WHERE TARGET='Counties_Stage'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ROW_COUNT2"
@@ -4679,11 +4679,15 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
     design-time-name="Package\Sequence Container 1\ETL County">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Sequence Container 1\ETL County\Row Count"
           TopLeft="164.99999722504,388.991593522066" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Sequence Container 1\ETL County\Derived Column"
+          TopLeft="170.714288621533,300.458827036392" />
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Sequence Container 1\ETL County\OLE DB Destination"
@@ -4731,7 +4735,9 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4753,55 +4759,9 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container 1\ETL County.Paths[Derived Column Output]"
-          TopLeft="248.199999386467,148.9714271026">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.9109256730141"
-              Start="0,0"
-              End="0,32.4109256730141">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.4109256730141" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Sequence Container 1\ETL County\Derived Column"
-          TopLeft="170.714288621533,300.458827036392" />
-        <EdgeLayout
-          Id="Package\Sequence Container 1\ETL County.Paths[Data Conversion Output]"
-          TopLeft="247.142858775903,230.482352775614">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,69.9764742607784"
-              Start="0,0"
-              End="0,62.4764742607784">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.4764742607784" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4835,7 +4795,57 @@ WHERE ([Created] &gt;= ? AND [Created] &lt; ?) OR ([Last Updated] &gt;= ? AND [L
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 1\ETL County.Paths[Derived Column Output]"
+          TopLeft="248.199999386467,148.9714271026">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.9109256730141"
+              Start="0,0"
+              End="0,32.4109256730141">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4109256730141" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 1\ETL County.Paths[Data Conversion Output]"
+          TopLeft="247.142858775903,230.482352775614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.9764742607784"
+              Start="0,0"
+              End="0,62.4764742607784">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.4764742607784" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

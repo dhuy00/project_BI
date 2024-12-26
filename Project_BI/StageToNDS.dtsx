@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="133"
-  DTS:VersionGUID="{6156B69D-D639-48F7-8BFF-B02B24510CDD}">
+  DTS:VersionBuild="135"
+  DTS:VersionGUID="{8986B227-FA7A-41CF-BF7F-FC519922CD8A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -212,7 +212,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="SELECT CET, LSET&#xA;FROM DATA_FLOW_NDS&#xA;WHERE TABLE_NAME = 'State_NDS'"
+              SQLTask:SqlStatementSource="SELECT CET, LSET&#xA;FROM DATA_FLOW&#xA;WHERE TARGET = 'State_NDS'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="CET"
@@ -1290,7 +1290,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET CET = GETDATE()&#xA;WHERE TABLE_NAME = 'State_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET CET = GETDATE()&#xA;WHERE TARGET= 'State_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -1307,7 +1307,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME='State_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TARGET='State_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ROW_COUNT_INSERT_STATE"
@@ -1375,7 +1375,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="SELECT CET, LSET&#xA;FROM DATA_FLOW_NDS&#xA;WHERE TABLE_NAME = 'Counties_NDS'"
+              SQLTask:SqlStatementSource="SELECT CET, LSET&#xA;FROM DATA_FLOW&#xA;WHERE TARGET = 'Counties_NDS'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="CET"
@@ -3572,7 +3572,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET CET = GETDATE()&#xA;WHERE TABLE_NAME = 'Counties_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET CET = GETDATE()&#xA;WHERE TARGET = 'Counties_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -3589,7 +3589,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'Counties_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TARGET = 'Counties_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ROW_COUNT_INSERT_COUNTY"
@@ -3657,7 +3657,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="SELECT CET, LSET&#xA;FROM DATA_FLOW_NDS&#xA;WHERE TABLE_NAME = 'AirQualityData_NDS'"
+              SQLTask:SqlStatementSource="SELECT CET, LSET&#xA;FROM DATA_FLOW&#xA;WHERE TARGET = 'AirQualityData_NDS'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="CET"
@@ -6074,7 +6074,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET CET = GETDATE()&#xA;WHERE TABLE_NAME = 'AirQualityData_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET CET = GETDATE()&#xA;WHERE TARGET = 'AirQualityData_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -6091,7 +6091,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E940211D-7265-47D5-ABDC-15F5FF37D99D}"
-              SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TABLE_NAME = 'AirQualityData_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE DATA_FLOW&#xA;SET LSET = GETDATE(),&#xA;STATUS = 'SUCCESS',&#xA;ROW_INSERT = ?,&#xA;ROW_UPDATE = ?&#xA;WHERE TARGET = 'AirQualityData_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ROW_COUNT_INSERT_AQI"
@@ -6270,7 +6270,7 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
         <NodeLayout
           Size="295.2,41.6"
           Id="Package\Sequence Container 1\UPDATE LSET, STATUS, ROW_COUNT County"
-          TopLeft="31.2214296034864,311.023529089353" />
+          TopLeft="30.4277787963198,311.023529089353" />
         <EdgeLayout
           Id="Package\Sequence Container 1.PrecedenceConstraints[Constraint]"
           TopLeft="169.907143983473,62.7999999316299">
@@ -6317,18 +6317,18 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container 1.PrecedenceConstraints[Constraint 2]"
-          TopLeft="176.285707855407,253.356860959821">
+          TopLeft="175.888882451824,253.356860959821">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.6666681295323"
+              EndConnector="0,57.666668129532"
               Start="0,0"
-              End="0,50.1666681295323">
+              End="0,50.166668129532">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.1666681295323" />
+                    End="0,50.166668129532" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6340,8 +6340,8 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="355.2,382.4"
-          Size="355.2,425.6"
+          PanelSize="355.2,408"
+          Size="355.2,451.2"
           Id="Package\Sequence Container 1"
           TopLeft="848.698981398494,38.3718487058614" />
         <NodeLayout
@@ -6435,18 +6435,30 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
           TopLeft="1305.20408441109,23.2142856939374" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="738.514286577945,249.556512572473">
+          TopLeft="738.514286577945,247.941176439084">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="110.184694820549,0"
+              EndConnector="110.184694820549,16.0306722667772"
               Start="0,0"
-              End="102.684694820549,0">
+              End="102.684694820549,16.0306722667772">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="102.684694820549,0" />
+                    End="51.0923474102744,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.0923474102744,0"
+                    Point2="55.0923474102744,0"
+                    Point3="55.0923474102744,4" />
+                  <mssgle:LineSegment
+                    End="55.0923474102744,12.0306722667772" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.0923474102744,12.0306722667772"
+                    Point2="55.0923474102744,16.0306722667772"
+                    Point3="59.0923474102744,16.0306722667772" />
+                  <mssgle:LineSegment
+                    End="102.684694820549,16.0306722667772" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6457,18 +6469,30 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="1203.89898139849,251.193067199899">
+          TopLeft="1203.89898139849,263.971848705861">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="101.305103012596,0"
+              EndConnector="101.305103012596,-12.757563011924"
               Start="0,0"
-              End="93.8051030125962,0">
+              End="93.8051030125962,-12.757563011924">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="93.8051030125962,0" />
+                    End="46.6525515062981,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.6525515062981,0"
+                    Point2="50.6525515062981,0"
+                    Point3="50.6525515062981,-4" />
+                  <mssgle:LineSegment
+                    End="50.6525515062981,-8.75756301192402" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.6525515062981,-8.75756301192402"
+                    Point2="50.6525515062981,-12.757563011924"
+                    Point3="54.6525515062981,-12.757563011924" />
+                  <mssgle:LineSegment
+                    End="93.8051030125962,-12.757563011924" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6540,7 +6564,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6574,7 +6600,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6596,7 +6624,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6618,7 +6648,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6652,7 +6684,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6686,7 +6720,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6952,7 +6988,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6974,7 +7012,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7008,7 +7048,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7042,7 +7084,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7064,7 +7108,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7098,7 +7144,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7120,7 +7168,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7142,7 +7192,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7176,7 +7228,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7326,7 +7380,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7492,7 +7548,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7514,7 +7572,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7548,7 +7608,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7582,7 +7644,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7604,7 +7668,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7626,7 +7692,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7648,7 +7716,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7670,7 +7740,9 @@ WHERE (Created &lt; ? AND Created &gt;= ?) OR (LastUpdated &lt; ? AND LastUpdate
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

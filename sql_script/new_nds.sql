@@ -255,17 +255,5 @@ SELECT * FROM Counties_NDS
 --    MIN(AQI.AQI) AS MinAQI
 --FROM AirQualityData_NDS AQI 
 --GROUP BY YEAR(AQI.Date)
---ORDER BY YEAR(AQI.Date)
-
-
-
-
-
-
-
-
-
-
-
-
+--ORDER BY YEAR(AQI.Date
 

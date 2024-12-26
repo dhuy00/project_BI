@@ -20,16 +20,20 @@
   </Cubes>
   <Dimensions>
     <ProjectItem>
+      <Name>Dim Defining Parameter.dim</Name>
+      <FullPath>Dim Defining Parameter.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Day.dim</Name>
+      <FullPath>Dim Day.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Dim Category.dim</Name>
       <FullPath>Dim Category.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Dim Counties.dim</Name>
       <FullPath>Dim Counties.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Dim Day.dim</Name>
-      <FullPath>Dim Day.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -48,16 +52,16 @@
       <FullPath>DataMining_Month.dsv</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>DDS.dsv</Name>
-      <FullPath>DDS.dsv</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>DataMining_Quarter.dsv</Name>
       <FullPath>DataMining_Quarter.dsv</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>DataMining_Year.dsv</Name>
       <FullPath>DataMining_Year.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DDS.dsv</Name>
+      <FullPath>DDS.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <MiningModels>
@@ -86,7 +90,7 @@
           <ConfigurationSetting>
             <Id>DDS</Id>
             <Name>DDS</Name>
-            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=localhost;Integrated Security=SSPI;Initial Catalog=DDS</Value>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=LAPTOP-5GI3DC0I\MSSQLSERVER01;Integrated Security=SSPI;Initial Catalog=DDS</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
